@@ -1,4 +1,5 @@
 import React from 'react'
+import Header from './components/Header'
 import Hero from './components/Hero'
 import About from './components/About'
 import OurService from './components/OurService'
@@ -11,7 +12,7 @@ import Footer from './components/Footer'
 const App = () => {
   return (
     <div className=''>
-      <Headers/>
+      <Header/>
       <Hero/>
       <About/>
       <OurService/>
