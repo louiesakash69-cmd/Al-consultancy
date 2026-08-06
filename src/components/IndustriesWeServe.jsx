@@ -1,8 +1,5 @@
-
 const IndustriesWeServe = () => {
-  return (
-    <div>IndustriesWeServe</div>
-  )
-}
+  return <div id="industries">IndustriesWeServe</div>;
+};
 
-export default IndustriesWeServe
+export default IndustriesWeServe;
