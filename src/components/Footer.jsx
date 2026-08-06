@@ -1,60 +1,145 @@
-import logo from "../assets/logo.jpeg";
+import logoo from "../assets/logoo.png";
+import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
+import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 const Footer = () => {
+  const links = [
+    { name: "About Us", href: "#about" },
+    { name: "Services", href: "#services" },
+    { name: "Industries", href: "#industries" },
+    { name: "Contact", href: "#contact" },
+  ];
   return (
     <>
-      <footer className="bg-slate-900 px-6 py-8 md:px-15 md:py-12">
-        <div className="flex flex-col md:flex-row md:justify-around pb-8 border-b border-b-[#465467] gap-8">
-          <div className="flex flex-col items-start gap-5 md:w-1/2">
-            <img
-              className="w-[80px] h-[80px] rounded-2xl"
-              src={logo}
-              alt="logo image"
-            />
-            <span className="block text-[#465467] text-sm md:text-base">
-              International manpower recruitment from Velachery, Chennai,
-              placing skilled Indian workers with verified employers in
-              Slovakia, Croatia and Slovenia.
-            </span>
-            <div className="text-white inline-flex items-center gap-2 border border-[#434a6fbe]-[1px] bg-[#1c1f2e] rounded-4xl p-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
-                <rect x="2" y="4" width="20" height="16" rx="2" />
-              </svg>
-              <p className="text-sm">hello@alconsultancy.in</p>
+      <footer className="bg-[#0F172A] text-white pt-16 pb-8">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-12 border-b border-slate-700">
+            <div>
+              <div className="flex items-center gap-3">
+                <img
+                  src={logoo}
+                  alt="AL Consultancy Logo"
+                  className="w-24 h-24 object-contain rounded-2xl"
+                />
+                <div>
+                  <h2 className="text-3xl font-bold">
+                    AL <span className="text-sky-400">Consultancy</span>
+                  </h2>
+                </div>
+              </div>
+
+              <p className="text-gray-400 mt-5 leading-7">
+                Empowering businesses with world-class recruitment, staffing,
+                and global workforce solutions.
+              </p>
+
+              <div className="flex gap-4 mt-6">
+                <a
+                  href="#"
+                  className="w-11 h-11 rounded-full bg-white/10 hover:bg-sky-500 duration-300 flex items-center justify-center"
+                >
+                  <FaFacebookF size={18} />
+                </a>
+
+                <a
+                  href="#"
+                  className="w-11 h-11 rounded-full bg-white/10 hover:bg-sky-500 duration-300 flex items-center justify-center"
+                >
+                  <FaLinkedinIn size={18} />
+                </a>
+
+                <a
+                  href="#"
+                  className="w-11 h-11 rounded-full bg-white/10 hover:bg-sky-500 duration-300 flex items-center justify-center"
+                >
+                  <FaInstagram size={18} />
+                </a>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold mb-6">Quick Links</h3>
+
+              <ul className="space-y-4 text-gray-400">
+                {links.map((item) => (
+                  <li key={item.name}>
+                    <a
+                      href={item.href}
+                      className="hover:text-sky-400 flex items-center gap-2 duration-300"
+                    >
+                      <ArrowUpRight size={16} />
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold mb-6">Our Services</h3>
+
+              <ul className="space-y-4 text-gray-400">
+                {[
+                  "Global Recruitment",
+                  "Staffing Solutions",
+                  "Executive Search",
+                  "HR Consulting",
+                  "Talent Acquisition",
+                ].map((item) => (
+                  <li key={item}>
+                    <a href="#" className="hover:text-sky-400 duration-300">
+                      {item}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold mb-6">Contact Us</h3>
+
+              <div className="space-y-5">
+                <div className="flex gap-4">
+                  <Phone className="text-sky-400 mt-1" size={20} />
+                  <div>
+                    <p className="text-gray-400 text-sm">Phone</p>
+                    <p>+91 99999 99999</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <Mail className="text-sky-400 mt-1" size={20} />
+                  <div>
+                    <p className="text-gray-400 text-sm">Email</p>
+                    <p>info@alconsultancy.com</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <MapPin className="text-sky-400 mt-1" size={20} />
+                  <div>
+                    <p className="text-gray-400 text-sm">Office</p>
+                    <p>
+                      Velachery, Chennai, Tamil Nadu,
+                      <br />
+                      India
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="flex flex-col sm:flex-row gap-5 sm:gap-10 md:gap-16 text-[#465467]">
-            <div className="flex flex-col gap-2">
-              <h4 className="text-[#7d8b9e] font-semibold">COMPANY</h4>
-              <p>About</p>
-              <p>Why Us</p>
-              <p>Process</p>
-            </div>
-            <div className="flex flex-col gap-2">
-              <h4 className="text-[#7d8b9e] font-semibold">SERVICES</h4>
-              <p>Recruitment</p>
-              <p>Roles</p>
-              <p>Visa assistance</p>
-            </div>
-            <div className="flex flex-col gap-2">
-              <h4 className="text-[#7d8b9e] font-semibold">CONNECT</h4>
-              <p>Countries</p>
-              <p>Apply</p>
-              <p>Email</p>
+          <div className="flex flex-col md:flex-row justify-between items-center pt-8 gap-4">
+            <p className="text-gray-400 text-sm">
+              © AL Consultancy. All Rights Reserved.
+            </p>
+
+            <div className="flex gap-6 text-gray-400 text-sm">
+              <a href="#" className="hover:text-sky-400">
+                Privacy Policy
+              </a>
+
+              <a href="#" className="hover:text-sky-400">
+                Terms & Conditions
+              </a>
             </div>
           </div>
-        </div>
-        <div className="mt-5 text-[#465467] flex flex-col sm:flex-row items-center justify-between gap-3 text-sm md:text-base">
-          <p>© 2026 AL Consultancy</p>
-          <p>Ethical international recruitment</p>
         </div>
       </footer>
     </>
