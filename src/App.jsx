@@ -7,11 +7,15 @@ import IndustriesWeServe from './components/IndustriesWeServe'
 import Whychoose from './components/Whychoose'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import './App.css'
+
+
+
 
 
 const App = () => {
   return (
-    <div className=''>
+    <div className='al-root'>
       <Header/>
       <Hero/>
       <About/>

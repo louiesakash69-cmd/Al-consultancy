@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { ArrowRight, Menu, X } from 'lucide-react'
+import MagneticButton from '../ui/MagneticButton'
 
 const NAV_LINKS = [
   { label: 'About', href: '#about' },
@@ -30,87 +31,75 @@ const Header = () => {
   const close = () => setOpen(false)
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        solid || open
-          ? 'border-b border-slate-900/10 bg-white/80 shadow-sm backdrop-blur-md'
-          : 'border-b border-transparent bg-transparent'
-      }`}
-    >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 md:h-20 md:px-8">
-        <a href="#top" className="min-w-0 shrink-0" onClick={close}>
+    <header className={`al-header ${solid || open ? "al-header-solid" : "al-header-clear"} fixed top-0 left-0 right-0 z-50`}>      <div className="mx-auto max-w-7xl px-5 md:px-8">
+      <div className="relative flex items-center justify-between h-16 md:h-20">
+        <a href="#top" className="flex items-center min-w-0" onClick={() => setOpen(false)}>
           <img
             src="/al-consultancy-logo.png"
             alt="AL Consultancy"
-            className="h-9 w-auto object-contain md:h-12"
-            width={180}
-            height={48}
+            className="al-logo"
+            width="180"
+            height="48"
             decoding="async"
           />
         </a>
 
-        <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
+        <nav className="hidden lg:flex items-center gap-7 xl:gap-9" aria-label="Primary">
           {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-[15px] font-medium text-slate-600 transition-colors hover:text-slate-900"
-            >
+            <a key={link.href} href={link.href} className="al-nav-link">
               {link.label}
             </a>
           ))}
         </nav>
 
-        <a
-          href="#contact"
-          className="hidden items-center gap-2 rounded-xl bg-gradient-to-br from-[#101B33] via-slate-900 to-[#16233F] px-4 py-2.5 text-sm font-semibold text-white shadow-md transition hover:shadow-lg lg:inline-flex"
-        >
-          Apply now
-          <ArrowRight size={16} strokeWidth={2.2} />
-        </a>
+        <div className="hidden lg:block">
+          <MagneticButton variant="primary" size="sm" href="#contact">
+            Apply now
+            <ArrowRight size={16} strokeWidth={2.2} />
+          </MagneticButton>
+        </div>
 
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
-          aria-controls="mobile-nav"
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-900/10 bg-slate-50 text-slate-900 lg:hidden"
+          aria-controls="al-mobile-nav"
+          aria-label={open ? "Close menu" : "Open menu"}
+          className="al-menu-toggle"
         >
           {open ? <X size={18} /> : <Menu size={18} />}
         </button>
       </div>
+    </div>
 
-      {open && (
-        <div
-          id="mobile-nav"
-          className="border-t border-slate-900/10 bg-white/95 backdrop-blur-md lg:hidden"
-        >
-          <div className="mx-auto max-w-7xl px-5 py-4">
-            <nav className="flex flex-col" aria-label="Mobile">
-              {NAV_LINKS.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={close}
-                  className="border-b border-slate-900/5 py-3 text-base font-semibold text-slate-900 last:border-b-0"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </nav>
-
-            <a
-              href="#contact"
-              onClick={close}
-              className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white"
-            >
-              Apply now
-              <ArrowRight size={16} strokeWidth={2.2} />
-            </a>
-          </div>
+      <div
+        id="al-mobile-nav"
+        className={`al-drawer ${open ? "al-drawer-open" : "al-drawer-closed"}`}
+      >
+        <div className="mx-auto max-w-7xl px-5 pt-2 pb-5">
+          <nav className="flex flex-col" aria-label="Mobile">
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className="al-drawer-link"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+          <MagneticButton
+            variant="primary"
+            href="#contact"
+            className="mt-4 w-full justify-center"
+            onClick={() => setOpen(false)}
+          >
+            Apply now
+            <ArrowRight size={16} strokeWidth={2.2} />
+          </MagneticButton>
         </div>
-      )}
+      </div>
     </header>
   )
 }
