@@ -5,6 +5,8 @@ import img4 from "../assets/img-4.jpg";
 import img5 from "../assets/img-5.jpg";
 import img6 from "../assets/img-6.jpg";
 import { motion } from "framer-motion";
+import Eyebrow from "../ui/Eyebrow";
+import Reveal from "../ui/Reveal";
 const Whychoose = () => {
   const containerVariants = {
     hidden: {},
@@ -30,17 +32,13 @@ const Whychoose = () => {
     },
   };
   return (
-    <section id="whyus" className="py-10 md:py-16 lg:py-10 bg-white">
+    <section id="whyus" className="py-10 md:py-16 lg:py-4 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-10 lg:mb-14">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="w-10 sm:w-14 lg:w-20 h-[1px] bg-[#465467] rounded-full"></span>
-
-            <p className="uppercase tracking-[2px] sm:tracking-[4px] text-xs sm:text-sm font-semibold text-[#465467]">
-              Why Us
-            </p>
-          </div>
-          <h2 className="text-1xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
+          <Reveal>
+            <Eyebrow>Why Us</Eyebrow>
+          </Reveal>
+          <h2 className="al-display al-h2 font-bold text-slate-900 leading-tight">
             Reasons candidates and <br />
             employers stay with us
           </h2>
