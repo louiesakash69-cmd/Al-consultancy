@@ -75,9 +75,9 @@ export default function About() {
               </Reveal>
 
               <Reveal delay={4}>
-                <article className="al-soft p-8">
-                  <div className="flex items-start gap-4">
-                    <div className="al-icon al-icon-sm" aria-hidden="true">
+                <article className="al-card al-card-hover p-8">
+                  <div className="flex flex-col items-start gap-4">
+                    <div className="al-icon " aria-hidden="true">
                       <ShieldCheck size={17} strokeWidth={1.9} />
                     </div>
                     <div>

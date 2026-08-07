@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { ArrowRight, Menu, X } from 'lucide-react'
 import MagneticButton from '../ui/MagneticButton'
+import { DrawArrowRight, DrawMenu, DrawX } from '../ui/DrawIcon'
 
 const NAV_LINKS = [
   { label: 'About', href: '#about' },
@@ -54,7 +54,7 @@ const Header = () => {
           <div className="hidden lg:block">
             <MagneticButton variant="primary" size="sm" href="#contact">
               Apply now
-              <ArrowRight size={16} strokeWidth={2.2} />
+              <DrawArrowRight size={16} delay={0.25} />
             </MagneticButton>
           </div>
 
@@ -66,7 +66,7 @@ const Header = () => {
             aria-label={open ? 'Close menu' : 'Open menu'}
             className="al-menu-toggle"
           >
-            {open ? <X size={18} /> : <Menu size={18} />}
+            {open ? <DrawX size={18} key="x" /> : <DrawMenu size={18} key="menu" />}
           </button>
         </div>
       </div>
@@ -95,7 +95,7 @@ const Header = () => {
             onClick={() => setOpen(false)}
           >
             Apply now
-            <ArrowRight size={16} strokeWidth={2.2} />
+            <DrawArrowRight size={16} delay={0.1} />
           </MagneticButton>
         </div>
       </div>

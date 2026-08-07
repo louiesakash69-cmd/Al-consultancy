@@ -1,10 +1,10 @@
 import { useEffect, useRef } from "react";
-import { ArrowRight, MapPin } from "lucide-react";
 import useScrollY from "../hooks/useScrollY";
 import AvatarStack from "../ui/AvatarStack";
 import Counter from "../ui/Counter";
 import MagneticButton from "../ui/MagneticButton";
 import Reveal from "../ui/Reveal";
+import { DrawArrowRight, DrawMapPin } from "../ui/DrawIcon";
 import HeroVisual from "./hero-visuals";
 
 
@@ -29,12 +29,6 @@ const Hero = () => {
     <section
       id="top"
       className="relative pt-24 pb-12 md:pt-36 md:pb-20 lg:pt-44 lg:pb-24 overflow-hidden"
-      // style={{
-      //   backgroundImage: `linear-gradient(rgba(255,255,255,0.08), rgba(255,255,255,0.08)), url(${heroBg})`,
-      //   backgroundSize: "75% auto",
-      //   backgroundRepeat: "no-repeat",
-      //   backgroundPosition: "right center",
-      // }}
     >
       <div className="al-canvas" ref={canvasRef}>
         <div className="al-dots" />
@@ -49,7 +43,7 @@ const Hero = () => {
           <div className="lg:col-span-7">
             <Reveal>
               <span className="al-chip al-mono">
-                <MapPin size={13} strokeWidth={2} />
+                <DrawMapPin size={13} delay={0.15} />
                 Velachery, Chennai · India
               </span>
             </Reveal>
@@ -74,7 +68,7 @@ const Hero = () => {
               <div className="mt-7 md:mt-9 flex flex-col sm:flex-row gap-3">
                 <MagneticButton variant="primary" href="#contact">
                   Start your career
-                  <ArrowRight size={17} strokeWidth={2.2} />
+                  <DrawArrowRight size={17} delay={0.35} />
                 </MagneticButton>
                 <MagneticButton variant="ghost" href="#services">
                   Our services
@@ -104,7 +98,7 @@ const Hero = () => {
 
 
           </div>
-          <div className="lg:col-span-5 hidden lg:block">
+          <div className="lg:col-span-5 hidden lg:block" ref={panelRef}>
             <Reveal>
               <HeroVisual/>
             </Reveal>
