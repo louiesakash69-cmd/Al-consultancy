@@ -210,7 +210,7 @@ const industriesWeServe = [
 
 export default function IndustriesWeServe() {
   return (
-    <section className="bg-white px-4 py-20 ">
+    <section id="industries" className="bg-white px-4 py-20 ">
 
       {/* HEADING */}
 

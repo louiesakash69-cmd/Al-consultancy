@@ -70,7 +70,7 @@ const ourServices = [
 
 export default function OurService() {
   return (
-    <section className="py-16 px-4 overflow-hidden">
+    <section id="services" className="py-16 px-4 overflow-hidden">
 
       {/* Heading */}
       <motion.div
