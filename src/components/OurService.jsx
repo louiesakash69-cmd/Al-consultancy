@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-
 import globe from "../assets/OurService/globe.png";
 import candidate from "../assets/OurService/candidate.png";
 import resume from "../assets/OurService/resume.png";
@@ -70,97 +69,88 @@ const ourServices = [
 
 export default function OurService() {
   return (
-    <section id="services" className="py-16 px-4 overflow-hidden">
+    <section id="services" className="py-16 px-4">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-10">
 
-      {/* Heading */}
-      <motion.div
-        initial={{
-          opacity: 0,
-          scale: 0.8,
-        }}
-        whileInView={{
-          opacity: 1,
-          scale: 1,
-        }}
-        viewport={{
-          once: true,
-        }}
-        transition={{
-          duration: 0.5,
-          ease: "easeOut",
-        }}
-        className="max-w-3xl mx-auto text-center mb-12">
-        <h2 className="text-3xl md:text-4xl tracking-wider font-bold text-slate-900">
-        Our Services
-      </h2>
+        {/* Left side sticky */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="lg:sticky lg:top-24 lg:self-start">
 
-      <div className="w-20 h-1 bg-slate-900 mx-auto mt-5 rounded-full"></div>
-    </motion.div>
+          <div className="flex items-center gap-2">
+            <span className="w-6 h-px bg-slate-400"></span>
+            <span className="text-xs font-semibold tracking-widest text-slate-400">
+              SERVICES
+            </span>
+          </div>
 
+          <h2 className="mt-3 text-3xl md:text-4xl tracking-wider font-bold text-slate-900">
+            Our Services
+          </h2>
 
-      {/* Cards */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <p className="mt-5 text-sm md:text-base leading-7 text-slate-600">
+            We handle everything from sourcing candidates to placing them
+            abroad, so employers and job seekers get a smooth recruitment
+            experience.
+          </p>
 
-        {ourServices.map((service, index) => (
+        </motion.div>
 
-          <motion.div
-            key={index}
+        {/* Cards */}
+        <div className="relative">
 
-            initial={{
-              opacity: 0,
-              scale: 0.8,
-            }}
+          {ourServices.map((service, index) => (
 
-            whileInView={{
-              opacity: 1,
-              scale: 1,
-            }}
+            <div
+              key={index}
+              className="sticky mb-6"
+              style={{
+                top: `${96 + index * 12}px`,
+                zIndex: index + 1,
+              }}
+            >
 
-            viewport={{
-              once: true,
-              amount: 0.2,
-            }}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="
+                  bg-white text-slate-900 rounded-lg p-6 flex 
+                  flex-col md:flex-row md:items-start gap-5
+                  border-2 border-slate-200 tracking-wide shadow-xl">
 
-            transition={{
-              duration: 0.5,
-              delay: index * 0.08,
-              ease: "easeOut",
-            }}
+                {/* Icon */}
+                <div className="flex justify-center md:justify-start">
+                  <img
+                    src={service.icon}
+                    alt={service.title}
+                    className="w-8 h-8 object-contain"
+                  />
+                </div>
 
-            whileHover={{
-              y: -6,
-            }}
+                <div>
+                  {/* Title */}
+                  <h3 className="text-xl font-bold text-center md:text-left">
+                    {service.title}
+                  </h3>
 
-            className="
-              bg-slate-900 text-white rounded-lg p-6 flex flex-col min-h-[320px]
-               border-2 border-transparent transition-all duration-300 hover:border-white
-              hover:[box-shadow:10px_10px_0px_0px_#ffffff] tracking-wide">
+                  {/* Description */}
+                  <p className="mt-3 text-sm md:text-base leading-7 text-justify text-slate-600">
+                    {service.description}
+                  </p>
+                </div>
 
-            {/* Icon */}
-            <div className="flex justify-center  md:justify-start mb-4">
-              <img
-                src={service.icon}
-                alt={service.title}
-                className="w-8 h-8 object-contain"
-              />
+              </motion.div>
+
             </div>
 
+          ))}
 
-            {/* Title */}
-            <h3 className="text-xl font-bold text-center md:text-left min-h-[64px]">
-              {service.title}
-            </h3>
-
-
-            {/* Description */}
-            <p className="mt-3 text-sm md:text-base leading-7 text-justify flex-grow">
-              {service.description}
-            </p>
-
-
-          </motion.div>
-
-        ))}
+        </div>
 
       </div>
 
