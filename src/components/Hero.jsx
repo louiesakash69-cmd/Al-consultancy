@@ -5,6 +5,8 @@ import AvatarStack from "../ui/AvatarStack";
 import Counter from "../ui/Counter";
 import MagneticButton from "../ui/MagneticButton";
 import Reveal from "../ui/Reveal";
+import HeroVisual from "./hero-visuals";
+
 
 
 
@@ -24,7 +26,16 @@ const Hero = () => {
 
 
   return (
-    <section id="top" className="relative pt-24 pb-12 md:pt-36 md:pb-20 lg:pt-44 lg:pb-24 overflow-hidden">
+    <section
+      id="top"
+      className="relative pt-24 pb-12 md:pt-36 md:pb-20 lg:pt-44 lg:pb-24 overflow-hidden"
+      // style={{
+      //   backgroundImage: `linear-gradient(rgba(255,255,255,0.08), rgba(255,255,255,0.08)), url(${heroBg})`,
+      //   backgroundSize: "75% auto",
+      //   backgroundRepeat: "no-repeat",
+      //   backgroundPosition: "right center",
+      // }}
+    >
       <div className="al-canvas" ref={canvasRef}>
         <div className="al-dots" />
         <div className="al-blob al-blob-blue w-72 h-72 md:w-96 md:h-96 -left-24 -top-16" />
@@ -47,7 +58,7 @@ const Hero = () => {
               <h1 className="al-display al-h1 mt-5 md:mt-7">
                 Helping Indian talent
                 <br />
-                build <span className="al-gradient-text">global careers</span> 
+                build <span className="al-gradient-text">global careers</span>
               </h1>
             </Reveal>
 
@@ -93,14 +104,18 @@ const Hero = () => {
 
 
           </div>
+          <div className="lg:col-span-5 hidden lg:block">
+            <Reveal>
+              <HeroVisual/>
+            </Reveal>
+          </div>
         </div>
       </div>
 
 
-
-
     </section>
   )
+
 }
 
-export default Hero
+  export default Hero

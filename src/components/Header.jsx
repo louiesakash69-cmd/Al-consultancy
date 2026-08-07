@@ -28,53 +28,52 @@ const Header = () => {
     }
   }, [open])
 
-  const close = () => setOpen(false)
-
   return (
-    <header className={`al-header ${solid || open ? "al-header-solid" : "al-header-clear"} fixed top-0 left-0 right-0 z-50`}>      <div className="mx-auto max-w-7xl px-5 md:px-8">
-      <div className="relative flex items-center justify-between h-16 md:h-20">
-        <a href="#top" className="flex items-center min-w-0" onClick={() => setOpen(false)}>
-          <img
-            src="/al-consultancy-logo.png"
-            alt="AL Consultancy"
-            className="al-logo"
-            width="180"
-            height="48"
-            decoding="async"
-          />
-        </a>
+    <header className={`al-header ${solid || open ? 'al-header-solid' : 'al-header-clear'} fixed top-0 left-0 right-0 z-50`}>
+      <div className="mx-auto max-w-7xl px-5 md:px-8">
+        <div className="relative flex items-center justify-between h-16 md:h-20">
+          <a href="#top" className="flex items-center min-w-0" onClick={() => setOpen(false)}>
+            <img
+              src="/al-consultancy-logo.png"
+              alt="AL Consultancy"
+              className="al-logo"
+              width="180"
+              height="48"
+              decoding="async"
+            />
+          </a>
 
-        <nav className="hidden lg:flex items-center gap-7 xl:gap-9" aria-label="Primary">
-          {NAV_LINKS.map((link) => (
-            <a key={link.href} href={link.href} className="al-nav-link">
-              {link.label}
-            </a>
-          ))}
-        </nav>
+          <nav className="hidden lg:flex items-center gap-7 xl:gap-9" aria-label="Primary">
+            {NAV_LINKS.map((link) => (
+              <a key={link.href} href={link.href} className="al-nav-link">
+                {link.label}
+              </a>
+            ))}
+          </nav>
 
-        <div className="hidden lg:block">
-          <MagneticButton variant="primary" size="sm" href="#contact">
-            Apply now
-            <ArrowRight size={16} strokeWidth={2.2} />
-          </MagneticButton>
+          <div className="hidden lg:block">
+            <MagneticButton variant="primary" size="sm" href="#contact">
+              Apply now
+              <ArrowRight size={16} strokeWidth={2.2} />
+            </MagneticButton>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-controls="al-mobile-nav"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            className="al-menu-toggle"
+          >
+            {open ? <X size={18} /> : <Menu size={18} />}
+          </button>
         </div>
-
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          aria-expanded={open}
-          aria-controls="al-mobile-nav"
-          aria-label={open ? "Close menu" : "Open menu"}
-          className="al-menu-toggle"
-        >
-          {open ? <X size={18} /> : <Menu size={18} />}
-        </button>
       </div>
-    </div>
 
       <div
         id="al-mobile-nav"
-        className={`al-drawer ${open ? "al-drawer-open" : "al-drawer-closed"}`}
+        className={`al-drawer ${open ? 'al-drawer-open' : 'al-drawer-closed'}`}
       >
         <div className="mx-auto max-w-7xl px-5 pt-2 pb-5">
           <nav className="flex flex-col" aria-label="Mobile">
