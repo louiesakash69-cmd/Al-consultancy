@@ -1,10 +1,14 @@
 import { useEffect, useRef } from "react";
-import { ArrowRight, MapPin } from "lucide-react";
 import useScrollY from "../hooks/useScrollY";
 import AvatarStack from "../ui/AvatarStack";
 import Counter from "../ui/Counter";
 import MagneticButton from "../ui/MagneticButton";
 import Reveal from "../ui/Reveal";
+import { DrawArrowRight, DrawMapPin } from "../ui/DrawIcon";
+import HeroVisual from "./hero-visuals";
+
+
+
 
 const Hero = () => {
   const y = useScrollY();
@@ -36,7 +40,7 @@ const Hero = () => {
           <div className="lg:col-span-7">
             <Reveal>
               <span className="al-chip al-mono">
-                <MapPin size={13} strokeWidth={2} />
+                <DrawMapPin size={13} delay={0.15} />
                 Velachery, Chennai · India
               </span>
             </Reveal>
@@ -62,7 +66,7 @@ const Hero = () => {
               <div className="mt-7 md:mt-9 flex flex-col sm:flex-row gap-3">
                 <MagneticButton variant="primary" href="#contact">
                   Start your career
-                  <ArrowRight size={17} strokeWidth={2.2} />
+                  <DrawArrowRight size={17} delay={0.35} />
                 </MagneticButton>
                 <MagneticButton variant="ghost" href="#services">
                   Our services
@@ -96,11 +100,22 @@ const Hero = () => {
                 </dl>
               </div>
             </Reveal>
+
+
+          </div>
+          <div className="lg:col-span-5 hidden lg:block" ref={panelRef}>
+            <Reveal>
+              <HeroVisual/>
+            </Reveal>
           </div>
         </div>
       </div>
-    </section>
-  );
-};
 
-export default Hero;
+
+
+
+    </section>
+  )
+}
+
+export default Hero

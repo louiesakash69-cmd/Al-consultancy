@@ -1,59 +1,55 @@
 import React from "react";
-
-import manufacturing from "../assets/Industries/manufacturing.png";
-import logistics from "../assets/Industries/logistics.png";
-import construction from "../assets/Industries/construction.png";
-import transportation from "../assets/Industries/transportation.png";
-import hospitality from "../assets/Industries/hospitality.png";
-import agriculture from "../assets/Industries/agriculture.png";
-import maintenance from "../assets/Industries/maintenance.png";
+import { motion } from "framer-motion";
+import {
+  Factory,
+  Warehouse,
+  HardHat,
+  Truck,
+  Hotel,
+  Wheat,
+  Wrench,
+} from "lucide-react";
 
 const industriesWeServe = [
   {
     title: "Manufacturing",
-    image: manufacturing,
+    icon: Factory,
     description:
       "Supporting industrial operations with skilled and reliable workforce solutions. We provide manpower for production, assembly, quality control, machine operations, and factory support roles to improve efficiency and productivity.",
   },
-
   {
     title: "Logistics & Warehousing",
-    image: logistics,
+    icon: Warehouse,
     description:
       "Providing workforce solutions for supply chain operations including inventory management, packing, material handling, storage, and distribution activities to ensure smooth business operations.",
   },
-
   {
     title: "Construction & Infrastructure",
-    image: construction,
+    icon: HardHat,
     description:
       "Delivering experienced manpower for construction projects, infrastructure development, and industrial works. Our workforce supports skilled trades, equipment operations, and site activities.",
   },
-
   {
     title: "Transportation & Logistics",
-    image: transportation,
+    icon: Truck,
     description:
       "Helping transportation companies maintain efficient operations with trained professionals for fleet management, driving, delivery support, and logistics services.",
   },
-
   {
     title: "Hospitality",
-    image: hospitality,
+    icon: Hotel,
     description:
       "Providing dedicated professionals for hotels, resorts, restaurants, and service industries. Our workforce supports guest services, housekeeping, food and beverage operations.",
   },
-
   {
     title: "Agriculture",
-    image: agriculture,
+    icon: Wheat,
     description:
       "Supporting agricultural businesses with dependable workforce solutions for farming, harvesting, processing, and seasonal operational requirements.",
   },
-
   {
     title: "Maintenance & Engineering",
-    image: maintenance,
+    icon: Wrench,
     description:
       "Providing skilled technicians and engineering professionals for equipment maintenance, technical operations, repairs, and industrial support services.",
   },
@@ -61,80 +57,82 @@ const industriesWeServe = [
 
 export default function IndustriesWeServe() {
   return (
-    <section id="industries" className="bg-white px-4 py-20 ">
+    <section id="industries" className="py-16 px-4 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
 
-      {/* HEADING */}
-
-      <div className="mx-auto mb-20 max-w-7xl px-6 text-center">
-
-        <h2 className="text-4xl font-bold text-slate-900 lg:text-5xl">
-          Industries We Serve
-        </h2>
-
-        <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-gray-600">
-          Delivering skilled workforce solutions across diverse industries
-          with reliable manpower and professional expertise.
-        </p>
-
-      </div>
-
-
-      {/* INDUSTRIES */}
-
-      <div className="mx-auto max-w-7xl px-4 md:px-6">
-
-        {industriesWeServe.map((industry, index) => (
-
-          <div
-            key={industry.title}
-
-            className={`sticky top-[80px] mb-10 flex min-h-[600px] flex-col
-               overflow-hidden rounded-3xl bg-white shadow-xl 
-               lg:min-h-[520px] lg:flex-row lg:items-center lg:gap-16
-             ${index % 2 !== 0 ? "lg:flex-row-reverse" : ""} `}
-            style={{
-              zIndex: index + 1,
-            }}
-          >
-
-            {/* IMAGE*/}
-
-            <div className="w-full lg:w-1/2">
-              <div className="overflow-hidden">
-                <img
-                  src={industry.image}
-                  alt={industry.title}
-                  className="h-[280px] w-full object-cover md:h-[350px]
-                   lg:h-[420px] lg:rounded-2xl"/>
-              </div>
-            </div>
-
-
-            {/* =========================
-                CONTENT
-            ========================== */}
-
-            <div className="w-full flex-1 p-6 md:p-8 lg:w-1/2 lg:p-0">
-              {/* Title */}
-
-              <h3 className="mb-4 text-2xl text-center font-bold
-               text-slate-900 md:text-3xl lg:text-4xl">
-                {industry.title}
-              </h3>
-
-              <p className="text-base leading-7 p-6 text-gray-600 md:text-lg md:leading-8">
-                {industry.description}
-              </p>
-            </div>
-
+        {/* Left side heading */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <div className="flex items-center gap-2">
+            <span className="w-6 h-px bg-slate-400"></span>
+            <span className="text-xs font-semibold tracking-widest text-slate-400">
+              INDUSTRIES
+            </span>
           </div>
 
-        ))}
+          <h2 className="mt-3 text-3xl md:text-4xl tracking-wider font-bold text-slate-900">
+            Industries We Serve
+          </h2>
+        </motion.div>
 
+        {/* Right side description */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+          className="lg:pt-2"
+        >
+          <h3 className="text-xl md:text-2xl font-bold text-slate-900">
+             Trusted Across Sectors
+          </h3>
+
+          <p className="mt-3 text-sm md:text-base leading-7 text-slate-600">
+            Delivering skilled workforce solutions across diverse industries
+            with reliable manpower and professional expertise.
+          </p>
+        </motion.div>
       </div>
 
+      {/* Cards row */}
+      <div className="mt-12 w-full overflow-x-auto">
+        <div className="flex gap-6 w-max px-4">
+          {industriesWeServe.map((industry, index) => (
+            <motion.div
+              key={industry.title}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.08,
+                ease: "easeOut",
+              }}
+              className="
+                bg-white text-slate-900 rounded-lg p-6 flex flex-col gap-4
+                border-2 border-slate-200 tracking-wide
+                w-[280px] shrink-0"
+            >
+              {/* Icon */}
+              <div className="w-12 h-12 rounded-md bg-slate-100 flex items-center justify-center">
+                <industry.icon className="w-6 h-6 text-slate-900" strokeWidth={1.75} />
+              </div>
+
+              {/* Title */}
+              <h3 className="text-xl font-bold">{industry.title}</h3>
+
+              {/* Description */}
+              <p className="text-sm md:text-base leading-7 text-slate-600">
+                {industry.description}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }
-
-
