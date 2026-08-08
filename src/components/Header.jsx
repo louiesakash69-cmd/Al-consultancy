@@ -10,7 +10,7 @@ const NAV_LINKS = [
   { label: 'Contact', href: '#contact' },
 ]
 
-const Header = () => {
+const Header = ({ setPopup }) => {
   const [open, setOpen] = useState(false)
   const [solid, setSolid] = useState(false)
 
@@ -52,7 +52,7 @@ const Header = () => {
           </nav>
 
           <div className="hidden lg:block">
-            <MagneticButton variant="primary" size="sm" href="#contact">
+            <MagneticButton variant="primary" size="sm" onClick={() => setPopup(true)}>
               Apply now
               <DrawArrowRight size={16} delay={0.25} />
             </MagneticButton>

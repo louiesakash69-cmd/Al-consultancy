@@ -18,11 +18,20 @@ export default function MagneticButton({ children, variant = "primary", href = "
     node.style.setProperty("--my", "0px");
   }, []);
 
+  const handleClick = (event) => {
+    if (onClick) {
+      event.preventDefault();
+      event.stopPropagation();
+      onClick(event);
+      return;
+    }
+  };
+
   return (
     <a
       ref={ref}
       href={href}
-      onClick={onClick}
+      onClick={handleClick}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       className={`al-btn al-btn-${variant}${size === "sm" ? " al-btn-sm" : ""} ${className}`}

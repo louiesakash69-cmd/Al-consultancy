@@ -1,9 +1,25 @@
+import { useEffect } from "react";
 import { X, ArrowLeft } from "lucide-react";
 import ApplicationType from "./ApplicationType";
 import CompanyForm from "./CompanyForm";
 import EmployeeForm from "./EmployeeForm";
 
 function Popup({ popup, setPopup, select, setSelect }) {
+  useEffect(() => {
+    if (!popup) return;
+
+    const originalOverflow = document.body.style.overflow;
+    const originalHtmlOverflow = document.documentElement.style.overflow;
+
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      document.documentElement.style.overflow = originalHtmlOverflow;
+    };
+  }, [popup]);
+
   if (!popup) return null;
   const closePopup = () => {
     setPopup(false);

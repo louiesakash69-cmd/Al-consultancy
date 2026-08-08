@@ -1,7 +1,8 @@
 import { ArrowRight, Plus } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import Popup from "./Popup";
+
+
 const cardVariants = {
   hidden: {
     opacity: 0,
@@ -17,9 +18,10 @@ const cardVariants = {
     },
   }),
 };
-const Contact = () => {
-  const [popup, setPopup] = useState(false);
-  const [select, setSelect] = useState("");
+
+
+const Contact = ({ setPopup }) => {
+
   return (
     <>
       <motion.section
@@ -64,12 +66,6 @@ const Contact = () => {
                   Apply Now
                   <ArrowRight size={18} />
                 </button>
-                <Popup
-                  popup={popup}
-                  setPopup={setPopup}
-                  select={select}
-                  setSelect={setSelect}
-                />
               </div>
               <div className="mt-8 flex flex-col items-center">
                 <div className="flex -space-x-3">

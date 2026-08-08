@@ -10,7 +10,7 @@ import HeroVisual from "./hero-visuals";
 
 
 
-const Hero = () => {
+const Hero = ({ setPopup }) => {
   const y = useScrollY();
   const panelRef = useRef(null);
   const canvasRef = useRef(null);
@@ -64,7 +64,7 @@ const Hero = () => {
 
             <Reveal delay={3}>
               <div className="mt-7 md:mt-9 flex flex-col sm:flex-row gap-3">
-                <MagneticButton variant="primary" href="#contact">
+                <MagneticButton variant="primary" onClick={() => setPopup(true)}>
                   Start your career
                   <DrawArrowRight size={17} delay={0.35} />
                 </MagneticButton>
