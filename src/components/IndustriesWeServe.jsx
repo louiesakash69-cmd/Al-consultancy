@@ -15,60 +15,67 @@ const industriesWeServe = [
     title: "Manufacturing",
     icon: Factory,
     description:
-      "Supporting industrial operations with skilled and reliable workforce solutions. We provide manpower for production, assembly, quality control, machine operations, and factory support roles to improve efficiency and productivity.",
+      "Providing skilled manpower for production, assembly, quality control, machine operations, and factory support.",
   },
   {
     title: "Logistics & Warehousing",
     icon: Warehouse,
     description:
-      "Providing workforce solutions for supply chain operations including inventory management, packing, material handling, storage, and distribution activities to ensure smooth business operations.",
+      "Providing reliable workforce for inventory, packing, material handling, storage, and distribution operations.",
   },
   {
     title: "Construction & Infrastructure",
     icon: HardHat,
     description:
-      "Delivering experienced manpower for construction projects, infrastructure development, and industrial works. Our workforce supports skilled trades, equipment operations, and site activities.",
+      "Providing experienced manpower for construction, infrastructure, skilled trades, equipment operations, and site activities.",
   },
   {
     title: "Transportation & Logistics",
     icon: Truck,
     description:
-      "Helping transportation companies maintain efficient operations with trained professionals for fleet management, driving, delivery support, and logistics services.",
+      "Supporting transportation with trained professionals for driving, fleet management, delivery, and logistics.",
   },
   {
     title: "Hospitality",
     icon: Hotel,
     description:
-      "Providing dedicated professionals for hotels, resorts, restaurants, and service industries. Our workforce supports guest services, housekeeping, food and beverage operations.",
+      "Providing reliable professionals for hospitality, including hotels, restaurants, housekeeping, and food services.",
   },
   {
     title: "Agriculture",
     icon: Wheat,
     description:
-      "Supporting agricultural businesses with dependable workforce solutions for farming, harvesting, processing, and seasonal operational requirements.",
+      "Supporting agriculture with reliable workers for farming, harvesting, processing, and seasonal operations.",
   },
   {
     title: "Maintenance & Engineering",
     icon: Wrench,
     description:
-      "Providing skilled technicians and engineering professionals for equipment maintenance, technical operations, repairs, and industrial support services.",
+      "Providing skilled technicians and engineers for equipment maintenance, repairs, and industrial support services.",
   },
 ];
+
+// Duplicate the list so the scroll can loop seamlessly (track moves -50%, then resets).
+const marqueeItems = [...industriesWeServe, ...industriesWeServe];
 
 export default function IndustriesWeServe() {
   return (
     <section id="industries" className="py-16 px-4 overflow-hidden">
+      {/* Heading and Description */}
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-
-        {/* Left side heading */}
+        {/* Left Side Heading */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          transition={{
+            duration: 0.5,
+            ease: "easeOut",
+          }}
         >
           <div className="flex items-center gap-2">
             <span className="w-6 h-px bg-slate-400"></span>
+
             <span className="text-xs font-semibold tracking-widest text-slate-400">
               INDUSTRIES
             </span>
@@ -79,16 +86,20 @@ export default function IndustriesWeServe() {
           </h2>
         </motion.div>
 
-        {/* Right side description */}
+        {/* Right Side Description */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+          transition={{
+            duration: 0.5,
+            ease: "easeOut",
+            delay: 0.1,
+          }}
           className="lg:pt-2"
         >
           <h3 className="text-xl md:text-2xl font-bold text-slate-900">
-             Trusted Across Sectors
+            Trusted Across Sectors
           </h3>
 
           <p className="mt-3 text-sm md:text-base leading-7 text-slate-600">
@@ -98,41 +109,55 @@ export default function IndustriesWeServe() {
         </motion.div>
       </div>
 
-      {/* Cards row */}
-      <div className="mt-12 w-full overflow-x-auto">
-        <div className="flex gap-6 w-max px-4">
-          {industriesWeServe.map((industry, index) => (
-            <motion.div
-              key={industry.title}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{
-                duration: 0.5,
-                delay: index * 0.08,
-                ease: "easeOut",
-              }}
-              className="
-                bg-white text-slate-900 rounded-lg p-6 flex flex-col gap-4
-                border-2 border-slate-200 tracking-wide
-                w-[280px] shrink-0"
-            >
-              {/* Icon */}
-              <div className="w-12 h-12 rounded-md bg-slate-100 flex items-center justify-center">
-                <industry.icon className="w-6 h-6 text-slate-900" strokeWidth={1.75} />
+      {/* Auto-scrolling Cards Row */}
+      <div className="mt-12 w-full overflow-hidden 
+      group [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]">
+        <div
+          className="flex gap-6 w-max px-4 
+          animate-[marquee_32s_linear_infinite] group-hover:[animation-play-state:paused]"
+        >
+          {marqueeItems.map((industry, index) => {
+            const Icon = industry.icon;
+
+            return (
+              <div
+                key={`${industry.title}-${index}`}
+                className="bg-gradient-to-br
+                  from-sky-50 via-violet-50  to-rose-50 text-slate-900
+                  rounded-lg p-6 flex flex-col gap-4  
+                  border border-slate-200 tracking-wide w-[300px] 
+                  shrink-0 shadow-lg shadow-slate-900/10">
+                  
+                {/* Icon */}
+                <div className="w-12 h-12 rounded-md bg-white/60 
+                flex items-center justify-center">
+                  <Icon
+                    className="w-6 h-6 text-slate-900"
+                    strokeWidth={1.75}
+                  />
+                </div>
+
+                {/* Title */}
+                <h3 className="text-xl font-bold">
+                  {industry.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-sm md:text-base leading-7 text-slate-600">
+                  {industry.description}
+                </p>
               </div>
-
-              {/* Title */}
-              <h3 className="text-xl font-bold">{industry.title}</h3>
-
-              {/* Description */}
-              <p className="text-sm md:text-base leading-7 text-slate-600">
-                {industry.description}
-              </p>
-            </motion.div>
-          ))}
+            );
+          })}
         </div>
       </div>
+
+      <style>{`
+        @keyframes marquee {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+      `}</style>
     </section>
   );
 }
