@@ -89,10 +89,10 @@ const ourServices = [
 
 export default function OurService() {
   return (
-    <section id="services" className="py-16 px-4">
+    <section id="services" className="pt-4 pb-16 px-4">
       <div
         className="max-w-7xl mx-auto grid grid-cols-1
-       lg:grid-cols-[320px_1fr] gap-10 px-4"
+        lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-16 px-4 lg:items-start"
       >
         {/* Left side sticky */}
         <motion.div
@@ -104,30 +104,31 @@ export default function OurService() {
         >
           <div className="flex items-center gap-2">
             <span className="w-6 h-px bg-slate-400"></span>
-            <span className="text-xs font-semibold tracking-widest text-slate-400">
+            <span className="text-xs md:text-sm font-semibold tracking-widest text-slate-400">
               SERVICES
             </span>
           </div>
 
-          <h2 className="mt-3 text-3xl md:text-4xl tracking-wider font-bold 
-          text-slate-900">
+          <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl xl:text-5xl 
+          tracking-wider font-bold text-slate-900">
             Our Services
           </h2>
-
-          <p className="mt-5 text-sm md:text-base leading-7 text-slate-600">
-            We handle everything from sourcing candidates to placing them
-            abroad, so employers and job seekers get a smooth recruitment
-            experience.
+          <p className="mt-5 text-sm sm:text-base xl:text-lg leading-7 sm:leading-7
+ text-slate-600">
+            We handle everything from sourcing to placement, giving employers
+            and job seekers a smooth, end-to-end recruitment experience.
           </p>
 
-          <p className="mt-5 text-sm md:text-base leading-7 text-slate-600">
-            We work with verified employers and confirmed vacancies, ensuring complete clarity for candidates.
-            We connect employers with skilled workers who genuinely match their requirements.
+          <p className="mt-5 text-sm sm:text-base xl:text-lg leading-7 sm:leading-7
+ text-slate-600">
+            We work only with verified employers and confirmed vacancies, so
+            candidates get complete clarity before they commit.
           </p>
-          <p className="mt-5 text-sm md:text-base leading-7 text-slate-600">
-             From costs to documentation and timelines, every step remains clear and transparent.
-            make it one line.
 
+          <p className="mt-5 text-sm sm:text-base xl:text-lg leading-7 sm:leading-7
+ text-slate-600">
+            Costs, documentation, and timelines — every step stays clear,
+            transparent, and free of surprises.
           </p>
         </motion.div>
 
@@ -139,9 +140,9 @@ export default function OurService() {
             return (
               <div
                 key={index}
-                className="sticky mb-6"
+                className="sticky mb-3"
                 style={{
-                  top: `${96 + index * 12}px`,
+                  top: `${96 + index * 8}px`,
                   zIndex: index + 1,
                 }}
               >
@@ -152,7 +153,7 @@ export default function OurService() {
                   transition={{ duration: 0.5, ease: "easeOut" }}
                   className="
                   relative overflow-hidden rounded-2xl
-                  aspect-[4/3] w-full max-w-md mx-auto
+                  min-h-[260px] sm:aspect-[4/3] w-full max-w-full mx-auto
                   shadow-xl border border-slate-200
                 "
                 >
@@ -173,22 +174,22 @@ export default function OurService() {
                   {/* Centered content */}
                   <div
                     className="relative z-10 flex flex-col items-center 
-                justify-center text-center h-full p-6"
+                justify-center text-center h-full p-5 sm:p-6 md:p-8"
                   >
-                    <div className="w-12 h-12 rounded-lg bg-white/20 border
-                     border-white/30 backdrop-blur-sm flex items-center justify-center">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-lg bg-white/20 border
+                     border-white/30 backdrop-blur-sm flex items-center justify-center shrink-0">
                       {Icon && (
                         <Icon
-                          className="w-6 h-6 text-white"
+                          className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-white"
                           strokeWidth={1.75}
                         />
                       )}
                     </div>
 
-                    <h3 className="mt-3 text-lg md:text-xl font-bold text-white">
+                    <h3 className="mt-3 sm:mt-4 text-base sm:text-lg md:text-2xl font-bold text-white">
                       {service.title}
                     </h3>
-                    <p className="mt-2 text-sm md:text-base leading-6 text-white/85">
+                    <p className="mt-2 sm:mt-3 text-xs sm:text-sm md:text-lg leading-5 sm:leading-6 md:leading-7 text-white/85">
                       {service.description}
                     </p>
                   </div>
