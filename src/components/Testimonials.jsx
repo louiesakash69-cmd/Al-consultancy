@@ -1,6 +1,30 @@
 import { Quote, Star } from "lucide-react";
 import Eyebrow from "../ui/Eyebrow";
 import Reveal from "../ui/Reveal";
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+const cardVariants = {
+  hidden: {
+    opacity: 0,
+    scale: 0,
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  },
+};
 
 const testimonials = [
   {
@@ -76,12 +100,19 @@ function Testimonials() {
         Reasons candidates and <br />
         employers trust us
       </h2>
-      <div className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5"
+      >
         {testimonials.map((item, index) => {
           const accent = accentStyles[item.accent];
           return (
-            <div
+            <motion.div
               key={index}
+              variants={cardVariants}
               className="rounded-2xl border border-slate-300 bg-[#F8FAFC] p-5 sm:p-6 flex flex-col hover:shadow-md hover:-translate-y-0.5 transition"
             >
               <div className="flex items-center justify-between mb-4">
@@ -112,10 +143,10 @@ function Testimonials() {
                   <p className="text-xs text-slate-500">{item.role}</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           );
         })}
-      </div>
+      </motion.div>
     </section>
   );
 }
