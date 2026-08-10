@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 
 const inputClass =
-  "w-full h-10 sm:h-11 rounded-lg sm:rounded-xl border border-slate-200 bg-slate-50/60 px-3.5 sm:px-4 text-sm md:text-base text-slate-900 placeholder:text-slate-400 outline-none transition focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-50";
+  "w-full h-10 sm:h-11 rounded-lg sm:rounded-xl border border-slate-200 bg-slate-50/60 px-4 text-sm md:text-base text-slate-900 placeholder:text-slate-400 outline-none transition focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-50";
 
 function CompanyForm() {
   return (
@@ -45,7 +45,7 @@ function CompanyForm() {
           rows={2}
           placeholder="Hiring requirements"
           required
-          className="w-full rounded-lg sm:rounded-xl border border-slate-200 bg-slate-50/60 px-3.5 sm:px-4 py-2.5 sm:py-3 text-sm md:text-base text-slate-900 placeholder:text-slate-400 resize-none outline-none transition focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-50"
+          className="w-full rounded-lg sm:rounded-xl border border-slate-200 bg-slate-50/60 p-4 text-sm md:text-base text-slate-900 placeholder:text-slate-400 resize-none outline-none transition focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-50"
         />
         <button
           type="submit"

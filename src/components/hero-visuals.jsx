@@ -5,7 +5,7 @@ import {
   DrawGlobe,
   DrawPlane,
   DrawShieldCheck,
-} from '../ui/DrawIcon'
+} from './ui/DrawIcon'
 
 const FLOATS = [
   {

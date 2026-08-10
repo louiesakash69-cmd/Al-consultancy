@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react'
-import MagneticButton from '../ui/MagneticButton'
-import { DrawArrowRight, DrawMenu, DrawX } from '../ui/DrawIcon'
+import MagneticButton from './ui/MagneticButton'
+import { DrawArrowRight, DrawMenu, DrawX } from './ui/DrawIcon'
+import logo from '../assets/logoo.png'
 
 const NAV_LINKS = [
   { label: 'About', href: '#about' },
   { label: 'Services', href: '#services' },
   { label: 'Industries', href: '#industries' },
-  { label: 'Why us', href: '#why' },
+  { label: 'Why us', href: '#whyus' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -30,15 +31,15 @@ const Header = ({ setPopup }) => {
 
   return (
     <header className={`al-header ${solid || open ? 'al-header-solid' : 'al-header-clear'} fixed top-0 left-0 right-0 z-50`}>
-      <div className="mx-auto max-w-7xl px-5 md:px-8">
+      <div className="mx-auto max-w-7xl px-4">
         <div className="relative flex items-center justify-between h-16 md:h-20">
           <a href="#top" className="flex items-center min-w-0" onClick={() => setOpen(false)}>
             <img
-              src="/al-consultancy-logo.png"
+              src={logo}
               alt="AL Consultancy"
               className="al-logo"
-              width="180"
-              height="48"
+              width="140"
+              height="35"
               decoding="async"
             />
           </a>
@@ -75,7 +76,7 @@ const Header = ({ setPopup }) => {
         id="al-mobile-nav"
         className={`al-drawer ${open ? 'al-drawer-open' : 'al-drawer-closed'}`}
       >
-        <div className="mx-auto max-w-7xl px-5 pt-2 pb-5">
+        <div className="mx-auto max-w-7xl px-4 py-4">
           <nav className="flex flex-col" aria-label="Mobile">
             {NAV_LINKS.map((link) => (
               <a

@@ -5,8 +5,8 @@ import img4 from "../assets/img-4.jpg";
 import img5 from "../assets/img-5.jpg";
 import img6 from "../assets/img-6.jpg";
 import { motion } from "framer-motion";
-import Eyebrow from "../ui/Eyebrow";
-import Reveal from "../ui/Reveal";
+import Eyebrow from "./ui/Eyebrow";
+import Reveal from "./ui/Reveal";
 const Whychoose = () => {
   const containerVariants = {
     hidden: {},
@@ -33,7 +33,7 @@ const Whychoose = () => {
   };
   return (
     <section id="whyus" className="py-10 md:py-16 lg:py-4 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4">
         <div className="mb-10 lg:mb-14">
           <Reveal>
             <Eyebrow>Why Us</Eyebrow>
