@@ -66,17 +66,17 @@ const Contact = ({ setPopup }) => {
               <div className="mt-8 flex flex-col items-center">
                 <div className="flex -space-x-3">
                   <img
-                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=160&h=160&q=80"
+                    src="https://images.unsplash.com/vector-1767330125626-bbf826e86b91?q=80&w=775&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     alt=""
                     className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-900 object-cover"
                   />
                   <img
-                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=160&h=160&q=80"
+                    src="https://images.unsplash.com/vector-1749124647885-49713a8d2750?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     alt=""
                     className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-900 object-cover"
                   />
                   <img
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=160&h=160&q=80"
+                    src="https://images.unsplash.com/vector-1749124647885-49713a8d2750?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     alt=""
                     className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-900 object-cover"
                   />
