@@ -55,7 +55,6 @@ const industriesWeServe = [
   },
 ];
 
-// Duplicate the list so the scroll can loop seamlessly (track moves -50%, then resets).
 const marqueeItems = [...industriesWeServe, ...industriesWeServe];
 
 export default function IndustriesWeServe() {
