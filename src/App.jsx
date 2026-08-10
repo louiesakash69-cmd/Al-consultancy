@@ -9,6 +9,7 @@ import Whychoose from "./components/Whychoose";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import "./App.css";
+import Testimonials from "./components/Testimonials";
 
 const App = () => {
   const [popup, setPopup] = useState(false);
@@ -21,6 +22,7 @@ const App = () => {
       <OurService />
       <IndustriesWeServe />
       <Whychoose />
+      <Testimonials />
       <Contact setPopup={setPopup} />
       <Popup
         popup={popup}
