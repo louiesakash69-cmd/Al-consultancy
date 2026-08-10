@@ -24,7 +24,7 @@ function ApplicationType({ setSelect }) {
       <div className="mt-4 sm:mt-6 md:mt-8 space-y-2.5 sm:space-y-3">
         <button
           onClick={() => setSelect("company")}
-          className="group w-full rounded-xl sm:rounded-2xl border border-white/60 bg-white/40 backdrop-blur-sm p-3.5 sm:p-4 md:p-5 flex items-center gap-3 sm:gap-4 hover:border-blue-500/40 hover:bg-blue-50/50 hover:shadow-sm transition text-left"
+          className="group w-full rounded-xl sm:rounded-2xl border border-white/60 bg-white/40 backdrop-blur-sm p-4 flex items-center gap-3 sm:gap-4 hover:border-blue-500/40 hover:bg-blue-50/50 hover:shadow-sm transition text-left"
         >
           <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-blue-50/80 border border-blue-100 flex items-center justify-center shrink-0">
             <Building2 className="text-blue-600" size={20} />
@@ -44,7 +44,7 @@ function ApplicationType({ setSelect }) {
         </button>
         <button
           onClick={() => setSelect("employee")}
-          className="group w-full rounded-xl sm:rounded-2xl border border-white/60 bg-white/40 backdrop-blur-sm p-3.5 sm:p-4 md:p-5 flex items-center gap-3 sm:gap-4 hover:border-cyan-500/40 hover:bg-cyan-50/50 hover:shadow-sm transition text-left"
+          className="group w-full rounded-xl sm:rounded-2xl border border-white/60 bg-white/40 backdrop-blur-sm p-4 flex items-center gap-3 sm:gap-4 hover:border-cyan-500/40 hover:bg-cyan-50/50 hover:shadow-sm transition text-left"
         >
           <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-cyan-50/80 border border-cyan-100 flex items-center justify-center shrink-0">
             <Users className="text-cyan-600" size={20} />

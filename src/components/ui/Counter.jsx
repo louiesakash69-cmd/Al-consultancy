@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import useInView from "../hooks/useInView";
+import useInView from "../../hooks/useInView";
 import RollingDigit from "./RollingDigit";
 
 export default function Counter({ to, suffix = "", prefix = "" }) {

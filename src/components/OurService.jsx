@@ -89,10 +89,10 @@ const ourServices = [
 
 export default function OurService() {
   return (
-    <section id="services" className="pt-4 pb-16 px-4">
+    <section id="services" className="p-4">
       <div
         className="max-w-7xl mx-auto grid grid-cols-1
-        lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-16 px-4 lg:items-start"
+        lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-16 p-4 lg:items-start"
       >
         {/* Left side sticky */}
         <motion.div
@@ -174,7 +174,7 @@ export default function OurService() {
                   {/* Centered content */}
                   <div
                     className="relative z-10 flex flex-col items-center 
-                justify-center text-center h-full p-5 sm:p-6 md:p-8"
+                justify-center text-center h-full p-4"
                   >
                     <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-lg bg-white/20 border
                      border-white/30 backdrop-blur-sm flex items-center justify-center shrink-0">

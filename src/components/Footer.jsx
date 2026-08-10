@@ -15,7 +15,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-18 pb-12 border-b border-slate-700">
             <div>
-              <div className="flex items-center gap-3">
+              <div className="flex flex-col items-center gap-3">
                 <img
                   src={logoo}
                   alt="AL Consultancy Logo"
@@ -123,7 +123,9 @@ const Footer = () => {
                   <div>
                     <p className="text-gray-800 font-bold text-sm">Office</p>
                     <p className="text-gray-600">
-                      Velachery, Chennai, Tamil Nadu,
+                      Velachery, Chennai,
+                      <br />
+                      Tamil Nadu,
                       <br />
                       India
                     </p>
