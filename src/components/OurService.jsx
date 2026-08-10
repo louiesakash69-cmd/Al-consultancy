@@ -113,25 +113,22 @@ export default function OurService() {
           tracking-wider font-bold text-slate-900">
             Our Services
           </h2>
-          <p className="mt-5 text-sm sm:text-base xl:text-lg leading-9 sm:leading-7 text-slate-600">
-            We handle everything from sourcing candidates to placing them
-            abroad, giving employers and job seekers a smooth, end-to-end
-            recruitment experience. Our team manages every stage of the
-            process, so nothing is left to chance.
+          <p className="mt-5 text-sm sm:text-base xl:text-lg leading-7 sm:leading-7
+ text-slate-600">
+            We handle everything from sourcing to placement, giving employers
+            and job seekers a smooth, end-to-end recruitment experience.
           </p>
 
-          <p className="mt-5 text-sm sm:text-base xl:text-lg leading-9 sm:leading-7 text-slate-600">
+          <p className="mt-5 text-sm sm:text-base xl:text-lg leading-7 sm:leading-7
+ text-slate-600">
             We work only with verified employers and confirmed vacancies, so
-            candidates get complete clarity before they commit. Every worker
-            we place genuinely matches the employer's requirements, backed by
-            careful screening and skill verification.
+            candidates get complete clarity before they commit.
           </p>
 
-          <p className="mt-5 text-sm sm:text-base xl:text-lg leading-9 sm:leading-7 text-slate-600">
-            Costs, documentation, and timelines — every step stays clear and
-            transparent, with no hidden surprises along the way. From the
-            first interview to the final placement, candidates always know
-            what comes next.
+          <p className="mt-5 text-sm sm:text-base xl:text-lg leading-7 sm:leading-7
+ text-slate-600">
+            Costs, documentation, and timelines — every step stays clear,
+            transparent, and free of surprises.
           </p>
         </motion.div>
 
@@ -156,7 +153,7 @@ export default function OurService() {
                   transition={{ duration: 0.5, ease: "easeOut" }}
                   className="
                   relative overflow-hidden rounded-2xl
-                  min-h-[260px] sm:aspect-[4/3] w-full max-w-lg mx-auto
+                  min-h-[260px] sm:aspect-[4/3] w-full max-w-full mx-auto
                   shadow-xl border border-slate-200
                 "
                 >
