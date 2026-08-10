@@ -52,7 +52,7 @@ const Hero = ({ setPopup }) => {
                 build <span className="al-gradient-text">global careers</span>
               </h1>
             </Reveal>
-
+            
             <Reveal delay={2}>
               <p className="al-lead mt-5 md:mt-7 max-w-xl">
                 AL Consultancy places skilled workers from India into verified

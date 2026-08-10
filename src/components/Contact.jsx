@@ -1,7 +1,5 @@
 import { ArrowRight, Plus } from "lucide-react";
-import { useState } from "react";
 import { motion } from "framer-motion";
-
 
 const cardVariants = {
   hidden: {
@@ -19,20 +17,18 @@ const cardVariants = {
   }),
 };
 
-
 const Contact = ({ setPopup }) => {
-
   return (
     <>
       <motion.section
         id="contact"
-        className="py-10 md:py-14 lg:py-4 mb-4"
+        className="py-10 md:py-14 lg:py-8 mb-4"
         variants={cardVariants}
         initial="hidden"
         whileInView={"visible"}
         viewport={{ once: true, amount: 0.3 }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative overflow-hidden rounded-3xl">
             <div
               className="absolute inset-0 bg-cover bg-center"
@@ -43,14 +39,14 @@ const Contact = ({ setPopup }) => {
             />
             <div className="absolute inset-0 bg-gradient-to-br from-slate-950/90 via-blue-950/80 to-slate-900/85"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-cyan-950/40 via-transparent to-transparent"></div>
-            <div className="relative flex flex-col items-center text-center px-5 sm:px-10 lg:px-16 py-12 sm:py-16 lg:py-20">
+            <div className="relative flex flex-col items-center text-center px-5 sm:px-10 lg:px-16 py-12 sm:py-16 lg:py-10">
               <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-2 mb-6">
                 <span className="h-2 w-2 rounded-full bg-emerald-400"></span>
-                <span className="text-[10px] sm:text-xs font-semibold tracking-[2px] uppercase text-emerald-300">
+                <span className="text-[6px] sm:text-xs font-semibold tracking-[2px] uppercase text-emerald-300">
                   Applications Open
                 </span>
               </div>
-              <h1 className="max-w-4xl text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+              <h1 className="max-w-4xl al-display al-h2 font-bold text-white leading-tight">
                 Ready to take your trade abroad?
               </h1>
               <p className="mt-5 max-w-2xl text-sm sm:text-base lg:text-lg leading-7 text-slate-300">
