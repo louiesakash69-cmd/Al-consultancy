@@ -55,12 +55,11 @@ const industriesWeServe = [
   },
 ];
 
-// Duplicate the list so the scroll can loop seamlessly (track moves -50%, then resets).
 const marqueeItems = [...industriesWeServe, ...industriesWeServe];
 
 export default function IndustriesWeServe() {
   return (
-    <section id="industries" className="py-16 px-4 overflow-hidden">
+    <section id="industries" className="py-16 px-4 overflow-hidden max-width-7xl">
       {/* Heading and Description */}
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
         {/* Left Side Heading */}
