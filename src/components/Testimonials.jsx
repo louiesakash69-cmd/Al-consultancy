@@ -1,4 +1,5 @@
-import { Quote, Star } from "lucide-react";
+import { useState } from "react";
+import { Quote, Star, ChevronLeft, ChevronRight } from "lucide-react";
 import Eyebrow from "./ui/Eyebrow";
 import Reveal from "./ui/Reveal";
 import { motion } from "framer-motion";
@@ -90,63 +91,99 @@ const accentStyles = {
   },
 };
 
-function Testimonials() {
+function TestimonialCard({ item }) {
+  const accent = accentStyles[item.accent];
   return (
-    <section className="lg:py-8 sm:py-16 md:py-20 px-4 sm:px-6 md:px-10 max-w-7xl mx-auto">
-      <Reveal>
-        <Eyebrow>Testimonials</Eyebrow>
-      </Reveal>
-      <h2 className="al-display al-h2 font-bold text-slate-900 leading-tight">
-        Reasons candidates and <br />
-        employers trust us
-      </h2>
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5"
-      >
-        {testimonials.map((item, index) => {
-          const accent = accentStyles[item.accent];
-          return (
-            <motion.div
-              key={index}
-              variants={cardVariants}
-              className="rounded-2xl border border-slate-300 bg-[#F8FAFC] p-5 sm:p-6 flex flex-col hover:shadow-md hover:-translate-y-0.5 transition"
+    <motion.div
+      variants={cardVariants}
+      className="rounded-2xl border border-slate-300 bg-[#F8FAFC] p-5 sm:p-6 flex flex-col hover:shadow-md transition h-full"
+    >
+      <div className="flex items-center justify-between mb-4">
+        <Quote className={`${accent.text} opacity-70`} size={22} />
+        <div className="flex gap-0.5">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <Star key={i} size={13} className="fill-amber-400 text-amber-400" />
+          ))}
+        </div>
+      </div>
+      <p className="text-gray-600">{item.quote}</p>
+      <div className="mt-5 flex items-center gap-3 pt-4 border-t border-slate-100">
+        <div
+          className={`w-10 h-10 rounded-full ${accent.bg} border ${accent.ring} flex items-center justify-center shrink-0`}
+        >
+          <span
+            className={`text-[10px] lg:text-sm font-semibold ${accent.text}`}
+          >
+            {item.initials}
+          </span>
+        </div>
+        <div>
+          <p className="text-xs lg:text-sm font-semibold text-slate-900">
+            {item.name}
+          </p>
+          <p className="text-[10px] lg:text-[12px] text-slate-500">
+            {item.role}
+          </p>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+function Testimonials() {
+  const [index, setIndex] = useState(0);
+
+  const goPrev = () => {
+    setIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+  const goNext = () => {
+    setIndex((prev) => (prev + 1) % testimonials.length);
+  };
+
+  return (
+    <section className="lg:py-8 sm:py-16 md:py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4">
+        <Reveal>
+          <Eyebrow>Testimonials</Eyebrow>
+        </Reveal>
+        <h2 className="al-display al-h2 font-bold text-slate-900 leading-tight">
+          Reasons candidates and <br />
+          employers trust us
+        </h2>
+        <div className="sm:hidden mt-8">
+          <div className="flex items-center gap-2">
+            <button
+              onClick={goPrev}
+              aria-label="Previous testimonial"
+              className="shrink-0 w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-slate-900 hover:border-blue-300 transition"
             >
-              <div className="flex items-center justify-between mb-4">
-                <Quote className={`${accent.text} opacity-70`} size={22} />
-                <div className="flex gap-0.5">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star
-                      key={i}
-                      size={13}
-                      className="fill-amber-400 text-amber-400"
-                    />
-                  ))}
-                </div>
-              </div>
-              <p className="text-gray-600">{item.quote}</p>
-              <div className="mt-5 flex items-center gap-3 pt-4 border-t border-slate-100">
-                <div
-                  className={`w-10 h-10 rounded-full ${accent.bg} border ${accent.ring} flex items-center justify-center`}
-                >
-                  <span className={`text-xs font-semibold ${accent.text}`}>
-                    {item.initials}
-                  </span>
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-slate-900">
-                    {item.name}
-                  </p>
-                  <p className="text-xs text-slate-500">{item.role}</p>
-                </div>
-              </div>
-            </motion.div>
-          );
-        })}
-      </motion.div>
+              <ChevronLeft size={18} />
+            </button>
+            <div className="flex-1">
+              <TestimonialCard item={testimonials[index]} />
+            </div>
+            <button
+              onClick={goNext}
+              aria-label="Next testimonial"
+              className="shrink-0 w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-slate-900 hover:border-blue-300 transition"
+            >
+              <ChevronRight size={18} />
+            </button>
+          </div>
+        </div>
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          className="hidden sm:grid mt-8 sm:mt-10 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5"
+        >
+          {testimonials.map((item, i) => (
+            <TestimonialCard key={i} item={item} />
+          ))}
+        </motion.div>
+      </div>
     </section>
   );
 }
