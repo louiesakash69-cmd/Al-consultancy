@@ -31,7 +31,7 @@ const Hero = ({ setPopup }) => {
       id="top"
       className="relative pt-24 pb-12 md:pt-36 md:pb-20 lg:pt-44 lg:pb-24 overflow-hidden"
     >
-      <div className="al-canvas" ref={canvasRef}>
+      <div className="al-canvas z-10" ref={canvasRef} >
         <div className="al-dots" />
         <div className="al-blob al-blob-blue w-72 h-72 md:w-96 md:h-96 -left-24 -top-16" />
         <div className="al-blob al-blob-cyan w-64 h-64 md:w-80 md:h-80 right-0 top-24" />
@@ -39,16 +39,18 @@ const Hero = ({ setPopup }) => {
         <div className="al-noise" />
       </div>
 
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover object-[50%_90%] z-0"
+      >
+        <source src={alvideor} type="video/mp4" />
+      </video>
+
       <div className="relative mx-auto max-w-7xl px-4" >
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src={alvideol} type="video/mp4" />
-        </video>
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           <div className="lg:col-span-7">
             <Reveal delay={1}>
@@ -107,9 +109,9 @@ const Hero = ({ setPopup }) => {
 
           </div>
           <div className="lg:col-span-5 hidden lg:block" ref={panelRef}>
-            <Reveal>
+            {/* <Reveal>
               <HeroVisual />
-            </Reveal>
+            </Reveal> */}
           </div>
         </div>
       </div>

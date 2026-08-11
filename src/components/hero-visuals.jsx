@@ -1,11 +1,14 @@
 import { motion } from 'framer-motion'
 import heroimg from '../assets/hero-img-2.png'
+import alvideol from "../assets/videos/al-bg-video-l.mp4"
+import alvideor from "../assets/videos/al-bg-video-r.mp4"
 import {
   DrawBadgeCheck,
   DrawGlobe,
   DrawPlane,
   DrawShieldCheck,
 } from './ui/DrawIcon'
+
 
 const FLOATS = [
   {
@@ -72,13 +75,25 @@ export default function HeroVisual() {
         animate={{ y: [0, -8, 0] }}
         transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
       >
-        <img
+        {/* <img
           src={heroimg}
           alt="Professional building a global career"
           width="640"
           height="640"
           decoding="async"
-        />
+        /> */}
+
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover object-[100%_50%]"
+        >
+          <source src={alvideor} type="video/mp4" />
+        </video>
+
+
         <div className="al-hero-sheen" aria-hidden="true" />
       </motion.div>
 

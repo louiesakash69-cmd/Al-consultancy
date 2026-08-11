@@ -29,41 +29,34 @@ const Contact = ({ setPopup }) => {
         viewport={{ once: true, amount: 0.3 }}
       >
         <div className="max-w-4xl mx-auto px-4">
-          <div className="relative overflow-hidden rounded-3xl">
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{
-                backgroundImage:
-                  "url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop')",
-              }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-950/90 via-blue-950/80 to-slate-900/85"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-cyan-950/40 via-transparent to-transparent"></div>
-            <div className="relative flex flex-col items-center text-center px-4 py-4">
-              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-2 mb-6">
-                <span className="h-2 w-2 rounded-full bg-emerald-400"></span>
-                <span className="text-[6px] sm:text-xs font-semibold tracking-[2px] uppercase text-emerald-300">
-                  Applications Open
-                </span>
-              </div>
-              <h2 className="max-w-4xl al-display al-h2 font-bold text-white leading-tight">
-                Ready to take your trade abroad?
+          <div className="relative overflow-hidden rounded-3xl shadow-[0_0_40px_rgba(15,23,42,0.12)]">
+            <div className="al-canvas">
+              <div className="al-dots" />
+              <div className="al-blob al-blob-blue w-72 h-72 -left-16 -top-16" />
+              <div className="al-blob al-blob-cyan w-64 h-64 right-0 top-10" />
+              <div className="al-blob al-blob-emerald w-56 h-56 left-1/3 bottom-0" />
+              <div className="al-noise" />
+            </div>
+            <div className="relative flex flex-col items-center text-center px-4 py-9">
+              <h2 className="max-w-4xl al-display al-h2  font-bold  leading-tight">
+                Ready to take your{" "}
+                <span className="al-gradient-text">trade abroad?</span>
               </h2>
-              <p className="mt-5 max-w-2xl text-sm sm:text-base lg:text-lg leading-7 text-slate-300">
+              <p className="al-lead mt-5 max-w-2xl text-sm sm:text-base lg:text-lg leading-7">
                 Send your resume and we'll match you with verified opportunities
                 in Slovakia, Croatia, and Slovenia with a clear recruitment
                 timeline.
               </p>
-              <div className="mt-8">
+              <div className="mt-4">
                 <button
-                  className="flex items-center gap-2 rounded-xl bg-white px-4 py-4 text-sm sm:text-base font-semibold text-slate-900 hover:bg-slate-300 transition"
+                  className="flex items-center gap-2 rounded-xl text-white bg-black px-4 py-2 text-sm sm:text-base font-semibold text-slate-900 hover:bg-gray-800 transition"
                   onClick={() => setPopup(true)}
                 >
                   Apply Now
                   <ArrowRight size={18} />
                 </button>
               </div>
-              <div className="mt-8 flex flex-col items-center">
+              <div className="mt-4 flex flex-col items-center">
                 <div className="flex -space-x-3">
                   <img
                     src="https://images.unsplash.com/vector-1767330125626-bbf826e86b91?q=80&w=775&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -84,7 +77,7 @@ const Contact = ({ setPopup }) => {
                     <Plus size={16} className="text-white" />
                   </div>
                 </div>
-                <p className="mt-3 text-xs sm:text-sm text-slate-300">
+                <p className="al-lead mt-3 text-xs sm:text-sm text-slate-300">
                   Join candidates already on the corridor
                 </p>
               </div>
