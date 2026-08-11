@@ -15,7 +15,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-18 pb-12 border-b border-slate-700">
             <div>
-              <div className="flex flex-col items-center gap-3">
+              <div className="flex flex-col items-start gap-1">
                 <img
                   src={logoo}
                   alt="AL Consultancy Logo"
@@ -27,12 +27,10 @@ const Footer = () => {
                   </h2>
                 </div>
               </div>
-
               <p className="text-gray-600 mt-5 leading-7">
                 Empowering businesses with world-class recruitment, staffing,
                 and global workforce solutions.
               </p>
-
               <div className="flex gap-4 mt-6">
                 <a
                   href="#"
@@ -40,14 +38,12 @@ const Footer = () => {
                 >
                   <FaFacebookF size={18} />
                 </a>
-
                 <a
                   href="#"
                   className="w-11 h-11 rounded-full bg-gray-600 hover:bg-sky-500 duration-300 flex items-center justify-center"
                 >
                   <FaLinkedinIn size={18} />
                 </a>
-
                 <a
                   href="#"
                   className="w-11 h-11 rounded-full bg-gray-600 hover:bg-sky-500 duration-300 flex items-center justify-center"
@@ -60,7 +56,6 @@ const Footer = () => {
               <h3 className="text-xl text-gray-800 font-semibold mb-6">
                 Quick Links
               </h3>
-
               <ul className="space-y-4 text-gray-600">
                 {links.map((item) => (
                   <li key={item.name}>
@@ -79,7 +74,6 @@ const Footer = () => {
               <h3 className="text-xl text-gray-800 font-semibold mb-6">
                 Our Services
               </h3>
-
               <ul className="space-y-4 text-gray-600">
                 {[
                   "Global Recruitment",
@@ -100,16 +94,14 @@ const Footer = () => {
               <h3 className="text-xl text-gray-800 font-semibold mb-6">
                 Contact Us
               </h3>
-
               <div className="space-y-5">
                 <div className="flex gap-4">
                   <Phone className="text-sky-400 mt-1" size={20} />
                   <div>
                     <p className="text-gray-800 font-bold text-sm">Phone</p>
-                    <p className="text-gray-600">+91 99999 99999</p>
+                    <p className="text-gray-600">+421 952531841</p>
                   </div>
                 </div>
-
                 <div className="flex gap-4">
                   <Mail className="text-sky-400 mt-1" size={20} />
                   <div>
@@ -117,18 +109,11 @@ const Footer = () => {
                     <p className="text-gray-600">info@alconsultancy.com</p>
                   </div>
                 </div>
-
                 <div className="flex gap-4">
                   <MapPin className="text-sky-400 mt-1" size={20} />
                   <div>
                     <p className="text-gray-800 font-bold text-sm">Office</p>
-                    <p className="text-gray-600">
-                      Velachery, Chennai,
-                      <br />
-                      Tamil Nadu,
-                      <br />
-                      India
-                    </p>
+                    <p className="text-gray-600">India and Slovokia</p>
                   </div>
                 </div>
               </div>
@@ -138,12 +123,10 @@ const Footer = () => {
             <p className="text-gray-600 text-sm">
               © AL Consultancy. All Rights Reserved.
             </p>
-
             <div className="flex gap-6 text-gray-600 text-sm">
               <a href="#" className="hover:text-sky-400">
                 Privacy Policy
               </a>
-
               <a href="#" className="hover:text-sky-400">
                 Terms & Conditions
               </a>
