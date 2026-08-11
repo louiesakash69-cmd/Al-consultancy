@@ -6,6 +6,10 @@ import MagneticButton from "./ui/MagneticButton";
 import Reveal from "./ui/Reveal";
 import { DrawArrowRight, DrawMapPin } from "./ui/DrawIcon";
 import HeroVisual from "./hero-visuals";
+import alvideol from "../assets/videos/al-bg-video-l.mp4"
+import alvideor from "../assets/videos/al-bg-video-r.mp4"
+
+
 
 
 
@@ -35,7 +39,16 @@ const Hero = ({ setPopup }) => {
         <div className="al-noise" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4">
+      <div className="relative mx-auto max-w-7xl px-4" >
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src={alvideol} type="video/mp4" />
+        </video>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           <div className="lg:col-span-7">
             <Reveal delay={1}>
