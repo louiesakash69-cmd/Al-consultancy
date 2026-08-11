@@ -21,7 +21,7 @@
 /* ===== typography (Hero text) ===== */
 .al-display{font-family:Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:-.035em;font-weight:600}
 .al-mono{font-family:Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;font-size:.6875rem;font-weight:500}
-.al-h1{font-size:clamp(2.15rem,9vw,5.1rem);line-height:.95}
+.al-h1{font-size:clamp(2rem,9vw,3.5rem);line-height:1.2}
 .al-lead{font-size:clamp(.98rem,1.15vw,1.145rem);line-height:1.65;color:var(--muted)}
 .al-body{line-height:1.7;color:var(--muted)}
 .al-ink{color:var(--ink)}
@@ -78,11 +78,11 @@
 }
 .al-header-clear{background:transparent;border-bottom:1px solid transparent}
 .al-logo{
-  display:block;height:36px;width:auto;object-fit:contain;
-  max-width:min(168px,52vw);
+  display:block;height:32px;width:auto;object-fit:contain;
+  max-width:min(120px,40vw);
 }
 @media (min-width:768px){
-  .al-logo{height:48px;max-width:none}
+  .al-logo{height:40px;max-width:none}
 }
 .al-drawer{
   position:absolute;left:0;right:0;top:100%;

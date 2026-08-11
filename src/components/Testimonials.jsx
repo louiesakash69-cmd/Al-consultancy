@@ -1,6 +1,6 @@
 import { Quote, Star } from "lucide-react";
-import Eyebrow from "../ui/Eyebrow";
-import Reveal from "../ui/Reveal";
+import Eyebrow from "./ui/Eyebrow";
+import Reveal from "./ui/Reveal";
 import { motion } from "framer-motion";
 
 const containerVariants = {

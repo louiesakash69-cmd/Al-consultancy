@@ -1,7 +1,7 @@
 import { ArrowRight, Upload } from "lucide-react";
 
 const inputClass =
-  "w-full h-10 sm:h-11 rounded-lg sm:rounded-xl border border-slate-200 bg-slate-50/60 px-3.5 sm:px-4 text-sm md:text-base text-slate-900 placeholder:text-slate-400 outline-none transition focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-50";
+  "w-full h-10 sm:h-11 rounded-lg sm:rounded-xl border border-slate-200 bg-slate-50/60 px-4 text-sm md:text-base text-slate-900 placeholder:text-slate-400 outline-none transition focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-50";
 
 function EmployeeForm() {
   return (
@@ -43,7 +43,7 @@ function EmployeeForm() {
         />
         <label
           htmlFor="resume-upload"
-          className="flex items-center justify-between gap-3 w-full h-10 sm:h-11 rounded-lg sm:rounded-xl border border-dashed border-slate-300 bg-slate-50/60 px-3.5 sm:px-4 text-xs sm:text-sm text-slate-500 cursor-pointer hover:border-cyan-400 hover:bg-cyan-50/40 transition"
+          className="flex items-center justify-between gap-3 w-full h-10 sm:h-11 rounded-lg sm:rounded-xl border border-dashed border-slate-300 bg-slate-50/60 px-4 text-xs sm:text-sm text-slate-500 cursor-pointer hover:border-cyan-400 hover:bg-cyan-50/40 transition"
         >
           <span>Upload resume</span>
           <Upload size={15} className="text-slate-400" />

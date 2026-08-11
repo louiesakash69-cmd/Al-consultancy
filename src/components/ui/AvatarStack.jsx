@@ -17,7 +17,7 @@ export const TRUST_AVATARS = [
 
 export default function AvatarStack({
   avatars = TRUST_AVATARS,
-  label = "50+ candidates placed across Europe",
+  label = "Your Career. A Global Opportunity.",
   href = "#contact",
   center = false,
   className = "",

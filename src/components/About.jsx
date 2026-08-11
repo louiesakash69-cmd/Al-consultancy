@@ -1,11 +1,11 @@
 import { BadgeCheck, Building2, Globe2, ShieldCheck, Target, Users } from "lucide-react";
-import Eyebrow from "../ui/Eyebrow";
-import Reveal from "../ui/Reveal";
+import Eyebrow from "./ui/Eyebrow";
+import Reveal from "./ui/Reveal";
 
 export default function About() {
   return (
     <section id="about" className="relative py-14 md:py-24 lg:py-32 scroll-mt-24">
-      <div className="mx-auto max-w-7xl px-5 md:px-8">
+      <div className="mx-auto max-w-7xl px-4">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-16">
           <div className="lg:col-span-6">
             <Reveal>
@@ -13,38 +13,23 @@ export default function About() {
             </Reveal>
             <Reveal delay={1}>
               <h2 className="al-display al-h2 mt-6 max-w-lg">
-                A recruitment partner built around the candidate, not the paperwork
+                Recruitment built around people, not paperwork
               </h2>
             </Reveal>
             <Reveal delay={2}>
               <div className="mt-7 space-y-5 max-w-xl">
                 <p className="al-body">
-                  AL Consultancy is an international manpower recruitment firm based in Velachery,
-                  Chennai. For over two years we have connected skilled Indian workers (welders,
-                  drivers, electricians, warehouse and production staff) with employers in Central
-                  Europe who need them.
+                  AL Consultancy helps skilled professionals explore international career opportunities and connects them with employers looking for the right talent.
                 </p>
                 <p className="al-body">
-                  We work on confirmed vacancies only. Candidates are screened before submission,
-                  employers are verified before we present a role, and everyone knows what happens
-                  next at every stage. That is the whole approach.
+                  We make the recruitment journey easier to understand by providing guidance throughout the process — from exploring suitable opportunities and preparing documentation to navigating the steps involved in international relocation.
+                </p>
+                <p className="al-body">
+                  Our approach is simple: clear communication, practical support, and a recruitment process where candidates understand what to expect at every stage.
                 </p>
               </div>
             </Reveal>
 
-            <Reveal delay={3}>
-              <div className="mt-10 flex flex-wrap gap-3">
-                <span className="al-chip al-mono">
-                  <Building2 size={13} strokeWidth={2} /> Head office · Velachery
-                </span>
-                <span className="al-chip al-mono al-chip-verified">
-                  <BadgeCheck size={13} strokeWidth={2} /> 50+ placements
-                </span>
-                <span className="al-chip al-mono">
-                  <Users size={13} strokeWidth={2} /> 14 trade categories
-                </span>
-              </div>
-            </Reveal>
           </div>
 
           <div className="lg:col-span-6">
@@ -56,8 +41,7 @@ export default function About() {
                   </div>
                   <h3 className="al-display al-h3 mt-6">Mission</h3>
                   <p className="al-body mt-3">
-                    Bridge skilled Indian professionals with trusted global employers through ethical
-                    international recruitment.
+                    To connect skilled professionals with international career opportunities through a clear, responsible, and candidate-focused recruitment process.
                   </p>
                 </article>
               </Reveal>
@@ -69,7 +53,7 @@ export default function About() {
                   </div>
                   <h3 className="al-display al-h3 mt-6">Vision</h3>
                   <p className="al-body mt-3">
-                    Become one of the world's most trusted international recruitment consultancies.
+                    To build a trusted international recruitment consultancy known for transparency, professionalism, and meaningful career opportunities.
                   </p>
                 </article>
               </Reveal>

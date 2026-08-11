@@ -55,14 +55,13 @@ const industriesWeServe = [
   },
 ];
 
-// Duplicate the list so the scroll can loop seamlessly (track moves -50%, then resets).
 const marqueeItems = [...industriesWeServe, ...industriesWeServe];
 
 export default function IndustriesWeServe() {
   return (
-    <section id="industries" className="py-16 px-4 overflow-hidden">
+    <section id="industries" className="p-4 overflow-hidden">
       {/* Heading and Description */}
-      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+      <div className="max-w-7xl mx-auto p-4 grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
         {/* Left Side Heading */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
@@ -113,7 +112,7 @@ export default function IndustriesWeServe() {
       <div className="mt-12 w-full overflow-hidden 
       group [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]">
         <div
-          className="flex gap-6 w-max px-4 
+          className="flex gap-6 w-max p-4 
           animate-[marquee_32s_linear_infinite] group-hover:[animation-play-state:paused]"
         >
           {marqueeItems.map((industry, index) => {
@@ -124,7 +123,7 @@ export default function IndustriesWeServe() {
                 key={`${industry.title}-${index}`}
                 className="bg-gradient-to-br
                   from-sky-50 via-violet-50  to-rose-50 text-slate-900
-                  rounded-lg p-6 flex flex-col gap-4  
+                  rounded-lg p-4 flex flex-col gap-4  
                   border border-slate-200 tracking-wide w-[300px] 
                   shrink-0 shadow-lg shadow-slate-900/10">
                   

@@ -6,14 +6,14 @@ import About from "./components/About";
 import OurService from "./components/OurService";
 import IndustriesWeServe from "./components/IndustriesWeServe";
 import Whychoose from "./components/Whychoose";
+import Testimonials from "./components/Testimonials";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import "./App.css";
-import Testimonials from "./components/Testimonials";
 
 const App = () => {
   const [popup, setPopup] = useState(false);
-  const [select, setSelect] = useState("");
+
   return (
     <div className="al-root">
       <Header setPopup={setPopup} />
@@ -24,12 +24,12 @@ const App = () => {
       <Whychoose />
       <Testimonials />
       <Contact setPopup={setPopup} />
+
       <Popup
         popup={popup}
         setPopup={setPopup}
-        select={select}
-        setSelect={setSelect}
       />
+
       <Footer />
     </div>
   );
