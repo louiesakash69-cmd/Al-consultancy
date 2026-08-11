@@ -1,16 +1,20 @@
 import { Plus } from "lucide-react";
+import img1 from "../../assets/avatars/Cartoon01.png"
+import img2 from "../../assets/avatars/Cartoon02.png"
+import img3 from "../../assets/avatars/Human01.png"
+
 
 export const TRUST_AVATARS = [
   {
-    src: "https://images.unsplash.com/vector-1767330125626-bbf826e86b91?q=80&w=775&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: img1,
     alt: "Placed candidate",
   },
   {
-    src: "https://images.unsplash.com/vector-1749124647885-49713a8d2750?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: img2,
     alt: "Placed candidate",
   },
   {
-    src: "https://images.unsplash.com/vector-1749124647885-49713a8d2750?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: img3,
     alt: "Placed candidate",
   },
 ];

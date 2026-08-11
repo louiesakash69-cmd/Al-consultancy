@@ -271,6 +271,10 @@ body.al-nav-open{overflow:hidden;touch-action:none}
 }
 .al-roll-affix{display:inline-block;line-height:1}
 
+.al-facepile-center {
+  align-items: center;
+}
+
 /* ===== About only (add these) ===== */
 .al-h2{font-size:clamp(1.7rem,5.5vw,3.15rem);line-height:1.03}
 .al-h3{font-size:clamp(1.05rem,1.3vw,1.2rem);line-height:1.3}

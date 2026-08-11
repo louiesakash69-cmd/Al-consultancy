@@ -44,7 +44,9 @@ const Hero = ({ setPopup }) => {
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover object-[50%_90%] z-0"
+        className="absolute inset-0 z-0 w-full h-full object-cover
+           object-[70%_0%]
+           md:object-[50%_90%]"
       >
         <source src={alvideor} type="video/mp4" />
       </video>
@@ -84,9 +86,9 @@ const Hero = ({ setPopup }) => {
                 <AvatarStack />
                 <dl className="grid grid-cols-3 gap-3 sm:gap-4 md:gap-6 flex-1 max-w-md">
                   {[
-                    { value: 1, label: "International Opportunities" },
-                    { value: 2, label: "End-to-End Support" },
-                    { value: 3, label: "Professional Guidance" },
+                    { value: 50, label: "Placements" },
+                    { value: 3, label: "Countries" },
+                    { value: 2, label: "Years" },
                   ].map((stat, i) => (
                     <div
                       key={stat.label}
@@ -95,7 +97,10 @@ const Hero = ({ setPopup }) => {
                       }
                     >
                       <dt className="al-display text-xl sm:text-2xl md:text-3xl al-ink tabular-nums">
-                        <Counter to={stat.value} prefix="0" />
+                        <Counter
+                          to={stat.value}
+                          suffix={stat.label === "Countries" ? "" : "+"}
+                        />
                       </dt>
                       <dd className="al-mono al-faint mt-1.5 text-[10px] sm:text-inherit leading-4">
                         {stat.label}

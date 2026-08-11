@@ -1,5 +1,6 @@
 import { ArrowRight, Plus } from "lucide-react";
 import { motion } from "framer-motion";
+import AvatarStack from "./ui/AvatarStack";
 
 const cardVariants = {
   hidden: {
@@ -38,7 +39,7 @@ const Contact = ({ setPopup }) => {
               <div className="al-noise" />
             </div>
             <div className="relative flex flex-col items-center text-center px-4 py-9">
-              <h2 className="max-w-4xl al-display al-h2  font-bold  leading-tight">
+              <h2 className="max-w-4xl al-display text-4xl  font-bold  leading-tight max-md:text-xl">
                 Ready to take your{" "}
                 <span className="al-gradient-text">trade abroad?</span>
               </h2>
@@ -57,26 +58,7 @@ const Contact = ({ setPopup }) => {
                 </button>
               </div>
               <div className="mt-4 flex flex-col items-center">
-                <div className="flex -space-x-3">
-                  <img
-                    src="https://images.unsplash.com/vector-1767330125626-bbf826e86b91?q=80&w=775&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt=""
-                    className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-900 object-cover"
-                  />
-                  <img
-                    src="https://images.unsplash.com/vector-1749124647885-49713a8d2750?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt=""
-                    className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-900 object-cover"
-                  />
-                  <img
-                    src="https://images.unsplash.com/vector-1749124647885-49713a8d2750?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt=""
-                    className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-900 object-cover"
-                  />
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-slate-900 bg-slate-700 flex items-center justify-center">
-                    <Plus size={16} className="text-white" />
-                  </div>
-                </div>
+                 <AvatarStack center={true} label={false} />
                 <p className="al-lead mt-3 text-xs sm:text-sm text-slate-300">
                   Join candidates already on the corridor
                 </p>
