@@ -106,7 +106,7 @@ const Footer = () => {
                   <Mail className="text-sky-400 mt-1" size={20} />
                   <div>
                     <p className="text-gray-800 font-bold text-sm">Email</p>
-                    <p className="text-gray-600">info@alconsultancy.com</p>
+                    <p className="text-gray-600">info@alconsultancy.in</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
