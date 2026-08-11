@@ -97,10 +97,10 @@ const Footer = () => {
               <div className="space-y-5">
                 <div className="flex gap-4">
                   <Phone className="text-sky-400 mt-1" size={20} />
-                  <div>
+                  {/* <div>
                     <p className="text-gray-800 font-bold text-sm">Phone</p>
                     <p className="text-gray-600">+421 952531841</p>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="flex gap-4">
                   <Mail className="text-sky-400 mt-1" size={20} />
