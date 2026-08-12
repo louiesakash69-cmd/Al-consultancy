@@ -22,7 +22,7 @@ const Footer = () => {
                 AL Consultancy
               </span>
               <p className="text-gray-600 text-xs md:text-sm">
-                info@alconsultancy.com
+                info@alconsultancy.in
               </p>
             </div>
           </div>

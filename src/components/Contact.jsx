@@ -30,14 +30,7 @@ const Contact = ({ setPopup }) => {
         viewport={{ once: true, amount: 0.3 }}
       >
         <div className="max-w-4xl mx-auto px-4">
-          <div className="relative overflow-hidden rounded-3xl shadow-[0_0_40px_rgba(15,23,42,0.12)]">
-            <div className="al-canvas">
-              <div className="al-dots" />
-              <div className="al-blob al-blob-blue w-72 h-72 -left-16 -top-16" />
-              <div className="al-blob al-blob-cyan w-64 h-64 right-0 top-10" />
-              <div className="al-blob al-blob-emerald w-56 h-56 left-1/3 bottom-0" />
-              <div className="al-noise" />
-            </div>
+          <div className="relative overflow-hidden rounded-3xl bg-gray-300">
             <div className="relative flex flex-col items-center text-center px-4 py-9">
               <h2 className="max-w-4xl al-display text-4xl  font-bold  leading-tight max-md:text-xl">
                 Ready to take your{" "}
@@ -58,7 +51,7 @@ const Contact = ({ setPopup }) => {
                 </button>
               </div>
               <div className="mt-4 flex flex-col items-center">
-                 <AvatarStack center={true} label={false} />
+                <AvatarStack center={true} label={false} />
                 <p className="al-lead mt-3 text-xs sm:text-sm text-slate-300">
                   Join candidates already on the corridor
                 </p>
