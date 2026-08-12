@@ -152,24 +152,26 @@ function Testimonials() {
           employers trust us
         </h2>
         <div className="sm:hidden mt-8">
-          <div className="flex items-center gap-2">
-            <button
-              onClick={goPrev}
-              aria-label="Previous testimonial"
-              className="shrink-0 w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-slate-900 hover:border-blue-300 transition"
-            >
-              <ChevronLeft size={18} />
-            </button>
+          <div className="flex flex-col items-center gap-2">
             <div className="flex-1">
               <TestimonialCard item={testimonials[index]} />
             </div>
-            <button
-              onClick={goNext}
-              aria-label="Next testimonial"
-              className="shrink-0 w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-slate-900 hover:border-blue-300 transition"
-            >
-              <ChevronRight size={18} />
-            </button>
+            <div className="flex gap-4">
+              <button
+                onClick={goPrev}
+                aria-label="Previous testimonial"
+                className="shrink-0 w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-slate-900 hover:border-blue-300 transition"
+              >
+                <ChevronLeft size={18} />
+              </button>
+              <button
+                onClick={goNext}
+                aria-label="Next testimonial"
+                className="shrink-0 w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-slate-900 hover:border-blue-300 transition"
+              >
+                <ChevronRight size={18} />
+              </button>
+            </div>
           </div>
         </div>
         <motion.div
