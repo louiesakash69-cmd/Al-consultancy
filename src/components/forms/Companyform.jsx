@@ -37,6 +37,7 @@ function CompanyForm() {
     data.append("workLocation", formData.get("workLocation").trim());
     data.append("contactPerson", formData.get("contactPerson").trim());
     data.append("businessEmail", formData.get("businessEmail").trim());
+    data.append("description", formData.get("description").trim());
 
     try {
       await fetch(GOOGLE_SCRIPT_URL, {
@@ -72,126 +73,136 @@ function CompanyForm() {
       </p>
 
       <form
-  onSubmit={handleSubmit}
-  className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3.5"
->
-  <input
-    type="text"
-    name="companyName"
-    placeholder="Company Name"
-    required
-    minLength={2}
-    maxLength={150}
-    autoComplete="organization"
-    className={inputClass}
-  />
+        onSubmit={handleSubmit}
+        className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3.5"
+      >
+        <input
+          type="text"
+          name="companyName"
+          placeholder="Company Name"
+          required
+          minLength={2}
+          maxLength={150}
+          autoComplete="organization"
+          className={inputClass}
+        />
 
-  <input
-    type="text"
-    name="workerType"
-    placeholder="Position / Worker Type Required"
-    required
-    minLength={2}
-    maxLength={150}
-    className={inputClass}
-  />
+        <input
+          type="text"
+          name="workerType"
+          placeholder="Position / Worker Type Required"
+          required
+          minLength={2}
+          maxLength={150}
+          className={inputClass}
+        />
 
-  <input
-    type="number"
-    name="workerQuantity"
-    placeholder="Number of Workers Required"
-    required
-    min="1"
-    max="10000"
-    step="1"
-    inputMode="numeric"
-    className={inputClass}
-  />
+        <input
+          type="number"
+          name="workerQuantity"
+          placeholder="Number of Workers Required"
+          required
+          min="1"
+          max="10000"
+          step="1"
+          inputMode="numeric"
+          className={inputClass}
+        />
 
-  <input
-    type="number"
-    name="budgetPerWorker"
-    placeholder="Budget per Worker"
-    required
-    min="0"
-    max="100000000"
-    step="1"
-    inputMode="numeric"
-    className={inputClass}
-  />
+        <input
+          type="number"
+          name="budgetPerWorker"
+          placeholder="Budget per Worker"
+          required
+          min="0"
+          max="100000000"
+          step="1"
+          inputMode="numeric"
+          className={inputClass}
+        />
 
-  <div className="relative">
-  <select
-    name="visaSupport"
-    defaultValue=""
-    className={`${inputClass} appearance-none pr-10 cursor-pointer`}
-  >
-    <option value="" disabled>
-      Visa Support Required (Optional)
-    </option>
-    <option value="required">Required</option>
-    <option value="not-required">Not Required</option>
-    <option value="not-sure">Not Sure</option>
-  </select>
+        <div className="relative">
+          <select
+            name="visaSupport"
+            defaultValue=""
+            className={`${inputClass} appearance-none pr-10 cursor-pointer`}
+          >
+            <option value="" disabled>
+              Visa Support Required (Optional)
+            </option>
+            <option value="required">Required</option>
+            <option value="not-required">Not Required</option>
+            <option value="not-sure">Not Sure</option>
+          </select>
 
-  <svg
-    className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400"
-    viewBox="0 0 20 20"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-  >
-    <path d="m6 8 4 4 4-4" />
-  </svg>
-</div>
+          <svg
+            className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400"
+            viewBox="0 0 20 20"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <path d="m6 8 4 4 4-4" />
+          </svg>
+        </div>
 
-  <input
-    type="text"
-    name="workLocation"
-    placeholder="Work Location"
-    required
-    minLength={2}
-    maxLength={150}
-    autoComplete="address-level2"
-    className={inputClass}
-  />
+        <input
+          type="text"
+          name="workLocation"
+          placeholder="Work Location"
+          required
+          minLength={2}
+          maxLength={150}
+          autoComplete="address-level2"
+          className={inputClass}
+        />
 
-  <input
-    type="text"
-    name="contactPerson"
-    placeholder="Contact Person"
-    required
-    minLength={2}
-    maxLength={100}
-    autoComplete="name"
-    className={inputClass}
-  />
+        <input
+          type="text"
+          name="contactPerson"
+          placeholder="Contact Person"
+          required
+          minLength={2}
+          maxLength={100}
+          autoComplete="name"
+          className={inputClass}
+        />
 
-  <input
-    type="email"
-    name="businessEmail"
-    placeholder="Business Email"
-    required
-    maxLength={150}
-    autoComplete="email"
-    className={inputClass}
-  />
+        <input
+          type="email"
+          name="businessEmail"
+          placeholder="Business Email"
+          required
+          maxLength={150}
+          autoComplete="email"
+          className={inputClass}
+        />
 
-  <button
-    type="submit"
-    disabled={loading}
-    className="sm:col-span-2 w-full h-11 sm:h-12 rounded-full bg-slate-900 text-white text-sm md:text-base font-semibold flex items-center justify-center gap-2 hover:bg-slate-800 disabled:opacity-60 disabled:cursor-not-allowed transition"
-  >
-    {loading ? "Submitting..." : "Submit Recruitment Request"}
-    {!loading && <ArrowRight size={16} />}
-  </button>
+        <textarea
+          name="description"
+          rows={4}
+          placeholder="Describe your workforce requirements, skills needed, or any additional details."
+          required
+          minLength={10}
+          maxLength={1000}
+          className="sm:col-span-2 w-full rounded-lg sm:rounded-xl border border-slate-200 bg-slate-50/60 p-4 text-sm md:text-base text-slate-900 placeholder:text-slate-400 resize-none outline-none transition focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-50"
+        />
 
-  {message && (
-    <p className="sm:col-span-2 text-center text-sm text-slate-600">
-      {message}
-    </p>
-  )}
-</form>
+        <button
+          type="submit"
+          disabled={loading}
+          className="sm:col-span-2 w-full h-11 sm:h-12 rounded-full bg-slate-900 text-white text-sm md:text-base font-semibold flex items-center justify-center gap-2 hover:bg-slate-800 disabled:opacity-60 disabled:cursor-not-allowed transition"
+        >
+          {loading ? "Submitting..." : "Submit Recruitment Request"}
+          {!loading && <ArrowRight size={16} />}
+        </button>
+
+        {message && (
+          <p className="sm:col-span-2 text-center text-sm text-slate-600">
+            {message}
+          </p>
+        )}
+      </form>
     </div>
   );
 }
