@@ -46,12 +46,34 @@ const Hero = ({ setPopup }) => {
         playsInline
         className="absolute inset-0 z-0 w-full h-full object-cover
            object-[70%_0%]
-           md:object-[50%_90%]"
+           md:object-[50%_50%]"
       >
         <source src={alvideor} type="video/mp4" />
       </video>
+      {/* Mobile background overlay */}
+      <div
+        className="
+    absolute inset-0 z-[1] pointer-events-none
+    bg-gradient-to-b
+    from-white/70 via-white/35 to-white/65
+    md:bg-gradient-to-r
+    md:from-white/85 md:via-white/55 md:to-transparent
+  "
+      />
 
-      <div className="relative mx-auto max-w-7xl px-4" >
+      {/* Extra readability overlay for mobile text area */}
+      <div
+  className="
+    absolute inset-0 z-[1] pointer-events-none
+    bg-gradient-to-r
+    from-white/95
+    via-white/85
+    to-white/20
+    md:hidden
+  "
+/>
+
+      <div className="relative z-[2] mx-auto max-w-7xl px-4" >
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           <div className="lg:col-span-7">
@@ -64,13 +86,16 @@ const Hero = ({ setPopup }) => {
             </Reveal>
 
             <Reveal delay={2}>
-              <p className="al-lead mt-5 md:mt-7 max-w-xl">
-                AL Consultancy helps skilled professionals explore international career opportunities with trusted employers across Europe. From understanding the opportunity to preparing documents and navigating the relocation process, we provide support throughout the journey.
+              <p className="al-lead mt-5 md:mt-7 max-w-xl !text-slate-900 md:!text-inherit">
+                AL Consultancy helps skilled professionals explore international career
+                opportunities with trusted employers across Europe. From understanding the
+                opportunity to preparing documents and navigating the relocation process,
+                we provide support throughout the journey.
               </p>
             </Reveal>
 
             <Reveal delay={3}>
-              <div className="mt-7 md:mt-9 flex flex-col sm:flex-row gap-3">
+              <div className="mt-7 md:mt-9 flex flex-row gap-3 sm:flex-row">
                 <MagneticButton variant="primary" onClick={() => setPopup(true)}>
                   Start your career
                   <DrawArrowRight size={17} delay={0.35} />

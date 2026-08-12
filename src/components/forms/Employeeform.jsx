@@ -67,7 +67,10 @@ function EmployeeForm() {
         opportunities.
       </p>
 
-      <form onSubmit={handleSubmit} className="space-y-2.5 sm:space-y-3.5">
+      <form
+        onSubmit={handleSubmit}
+        className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5"
+      >
         <input
           type="text"
           name="fullName"
@@ -96,30 +99,30 @@ function EmployeeForm() {
           required
           minLength={2}
           maxLength={100}
-          className={inputClass}
+          className="sm:col-span-2 w-full h-10 sm:h-11 rounded-lg sm:rounded-xl border border-slate-200 bg-slate-50/60 px-4 text-sm md:text-base text-slate-900 placeholder:text-slate-400 outline-none transition focus:bg-white focus:border-cyan-500 focus:ring-4 focus:ring-cyan-50"
         />
 
         <textarea
           name="description"
-          rows={4}
+          rows={5}
           placeholder="Tell us about your experience, skills, and the type of opportunity you're looking for."
           required
           minLength={10}
           maxLength={1000}
-          className="w-full rounded-lg sm:rounded-xl border border-slate-200 bg-slate-50/60 p-4 text-sm md:text-base text-slate-900 placeholder:text-slate-400 resize-none outline-none transition focus:bg-white focus:border-cyan-500 focus:ring-4 focus:ring-cyan-50"
+          className="sm:col-span-2 w-full rounded-lg sm:rounded-xl border border-slate-200 bg-slate-50/60 p-4 text-sm md:text-base text-slate-900 placeholder:text-slate-400 resize-none outline-none transition focus:bg-white focus:border-cyan-500 focus:ring-4 focus:ring-cyan-50"
         />
 
         <button
           type="submit"
           disabled={loading}
-          className="w-full h-11 sm:h-12 rounded-full bg-slate-900 text-white text-sm md:text-base font-semibold flex items-center justify-center gap-2 hover:bg-slate-800 disabled:opacity-60 disabled:cursor-not-allowed transition"
+          className="sm:col-span-2 w-full h-11 sm:h-12 rounded-full bg-slate-900 text-white text-sm md:text-base font-semibold flex items-center justify-center gap-2 hover:bg-slate-800 disabled:opacity-60 disabled:cursor-not-allowed transition"
         >
           {loading ? "Submitting..." : "Submit Application"}
           {!loading && <ArrowRight size={16} />}
         </button>
 
         {message && (
-          <p className="text-center text-sm text-slate-600">
+          <p className="sm:col-span-2 text-center text-sm text-slate-600">
             {message}
           </p>
         )}

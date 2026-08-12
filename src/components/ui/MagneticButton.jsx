@@ -36,7 +36,7 @@ export default function MagneticButton({ children, variant = "primary", href = "
       onMouseLeave={onLeave}
       className={`al-btn al-btn-${variant}${size === "sm" ? " al-btn-sm" : ""} ${className}`}
     >
-      <span className="relative z-10 inline-flex items-center gap-2">{children}</span>
+      <span className="relative z-10 inline-flex items-center gap-2 text-xs sm:text-base">{children}</span>
     </a>
   );
 }
