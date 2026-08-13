@@ -60,9 +60,9 @@ const marqueeItems = [...industriesWeServe, ...industriesWeServe];
 
 export default function IndustriesWeServe() {
   return (
-    <section id="industries" className="p-4 overflow-hidden">
+    <section id="industries" className="py-7 md:py-12 lg:py-16 overflow-hidden">
       {/* Heading and Description */}
-      <div className="max-w-7xl mx-auto p-4 grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+      <div className= " px-4 max-w-7xl mx-auto  grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
         {/* Left Side Heading */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
@@ -126,7 +126,7 @@ export default function IndustriesWeServe() {
                   from-sky-50 via-violet-50  to-rose-50 text-slate-900
                   rounded-lg p-4 flex flex-col gap-4  
                   border border-slate-200 tracking-wide w-[300px] 
-                  shrink-0 shadow-lg shadow-slate-900/10">
+                  shrink-0 ">
                   
                 {/* Icon */}
                 <div className="w-12 h-12 rounded-md bg-white/60 

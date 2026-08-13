@@ -18,7 +18,6 @@ const ourServices = [
     title: "International Manpower Recruitment",
     description:
       "Connecting overseas employers with skilled and semi-skilled professionals through reliable, ethical, and efficient recruitment solutions tailored to their workforce needs.",
-
   },
   {
     icon: UserSearch,
@@ -72,18 +71,20 @@ const ourServices = [
 
 export default function OurService() {
   return (
-    <section id="services" className="p-4">
+    <section id="services" className="py-7 md:py-12 lg:py-16">
       <div
-        className="max-w-7xl mx-auto grid grid-cols-1
-        lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-16 p-4 lg:items-start"
-      >
+        className="px-4 max-w-7xl mx-auto grid grid-cols-1
+        sm:grid-cols-[1fr_1.1fr] gap-10 sm:gap-16 sm:items-start">
+
         {/* Left side sticky */}
+
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="lg:sticky lg:top-24 lg:self-start"
+          className="sticky top-20 z-0 bg-white pb-6
+          sm:sticky sm:top-24 sm:self-start sm:z-auto sm:bg-transparent sm:pb-0"
         >
           <div className="flex items-center gap-2">
             <span className="w-6 h-px bg-slate-400"></span>
@@ -96,36 +97,34 @@ export default function OurService() {
           tracking-wider font-bold text-slate-900">
             Our Services
           </h2>
-          <p className="mt-5 text-sm sm:text-base xl:text-lg leading-7 sm:leading-7
- text-slate-600">
+          <p className="mt-5 text-sm sm:text-base xl:text-lg leading-7
+            text-slate-600">
             We handle everything from sourcing to placement, giving employers
             and job seekers a smooth, end-to-end recruitment experience.
           </p>
 
-          <p className="mt-5 text-sm sm:text-base xl:text-lg leading-7 sm:leading-7
- text-slate-600">
+          <p className="mt-5 text-sm sm:text-base xl:text-lg leading-7  text-slate-600">
             We work only with verified employers and confirmed vacancies, so
             candidates get complete clarity before they commit.
           </p>
 
-          <p className="mt-5 text-sm sm:text-base xl:text-lg leading-7 sm:leading-7
- text-slate-600">
+          <p className="mt-5 text-sm sm:text-base xl:text-lg leading-7  text-slate-600">
             Costs, documentation, and timelines — every step stays clear,
             transparent, and free of surprises.
           </p>
         </motion.div>
-
         {/* Cards */}
-        <div className="relative p-4">
+        <div className="relative">
           {ourServices.map((service, index) => {
             const Icon = service.icon;
 
             return (
               <div
                 key={index}
-                className="sticky mb-3"
+                className="sticky mb-3 top-[var(--card-top-sm)] sm:top-[var(--card-top-md)]"
                 style={{
-                  top: `${96 + index * 8}px`,
+                  "--card-top-sm": `${180 + index * 8}px`,
+                  "--card-top-md": `${96 + index * 8}px`,
                   zIndex: index + 1,
                 }}
               >
@@ -137,18 +136,18 @@ export default function OurService() {
                   className="
                   relative overflow-hidden rounded-2xl
                   min-h-[160px] sm:aspect-[16/9] w-full max-w-md sm:max-w-lg mx-auto
-                  shadow-xl border border-slate-200"
+                  border border-slate-200"
                   style={{
-                    background: "linear-gradient(to bottom right, #f0f9ff, #f5f3ff, #fff1f2)",
-                  }}
-                >
+                    background:
+                      "linear-gradient(to bottom right, #f0f9ff, #f5f3ff, #fff1f2)",
+                  }}>
+
                   {/*  content */}
-                  <div
-                    className="relative z-10 flex flex-col items-start 
-                justify-center text-left h-full p-3 sm:p-4"
-                  >
+
+                  <div className="relative z-10 flex flex-col items-start 
+                  justify-center text-left h-full p-3">
                     <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-white border
-                     border-slate-200 shadow-sm flex items-center justify-center shrink-0">
+                     border-slate-200 flex items-center justify-center shrink-0">
                       {Icon && (
                         <Icon
                           className="w-4 h-4 sm:w-5 sm:h-5 text-slate-700"
@@ -157,12 +156,11 @@ export default function OurService() {
                       )}
                     </div>
 
-                    <h3 className="mt-2 sm:mt-3 text-sm sm:text-base
-                     md:text-lg font-bold text-slate-900">
+                    <h3 className="text-sm sm:text-base md:text-lg font-bold text-slate-900">
                       {service.title}
                     </h3>
-                    <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm leading-5 
-                    sm:leading-6 text-slate-600">
+                    <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm leading-5 sm:leading-6
+                     text-slate-600">
                       {service.description}
                     </p>
                   </div>
