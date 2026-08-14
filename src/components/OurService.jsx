@@ -71,19 +71,19 @@ const ourServices = [
 
 export default function OurService() {
   return (
-    <section id="services" className="py-7 md:py-12 lg:py-16">
+    <section id="services" className="py-7 md:py-12 lg:py-16 ">
       <div
-        className="px-4 max-w-7xl mx-auto grid grid-cols-1
+        className="px-8 max-w-7xl mx-auto grid grid-cols-1
         sm:grid-cols-[1fr_1.1fr] gap-10 sm:gap-16 sm:items-start">
 
-        {/* Left side sticky */}
+        {/* Left side - static on mobile, sticky only on sm and above */}
 
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="sticky top-20 z-0 bg-white pb-6
+          className="relative z-20 pb-6
           sm:sticky sm:top-24 sm:self-start sm:z-auto sm:bg-transparent sm:pb-0"
         >
           <div className="flex items-center gap-2">
@@ -134,8 +134,10 @@ export default function OurService() {
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
                   className="
-                  relative overflow-hidden rounded-2xl
-                  min-h-[160px] sm:aspect-[16/9] w-full max-w-md sm:max-w-lg mx-auto
+                  relative overflow-hidden
+                  rounded-lg sm:rounded-2xl
+                  sm:min-h-[220px]
+                  w-full max-w-[300px] sm:max-w-md sm:max-w-lg lg:max-w-full mx-auto
                   border border-slate-200"
                   style={{
                     background:
@@ -144,22 +146,28 @@ export default function OurService() {
 
                   {/*  content */}
 
-                  <div className="relative z-10 flex flex-col items-start 
-                  justify-center text-left h-full p-3">
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-white border
-                     border-slate-200 flex items-center justify-center shrink-0">
+                  <div className="relative z-10 flex flex-col items-start
+                  gap-4 sm:gap-3
+                  justify-start
+                  text-left h-full p-4 sm:p-5">
+                    <div className="w-12 h-12 sm:w-10 sm:h-10
+                     rounded-md sm:rounded-lg
+                     bg-white/60 sm:bg-white
+                     border-0 sm:border sm:border-slate-200
+                     flex items-center justify-center shrink-0">
                       {Icon && (
                         <Icon
-                          className="w-4 h-4 sm:w-5 sm:h-5 text-slate-700"
+                          className="w-6 h-6 sm:w-5 sm:h-5 text-slate-900 sm:text-slate-700"
                           strokeWidth={1.75}
                         />
                       )}
                     </div>
 
-                    <h3 className="text-sm sm:text-base md:text-lg font-bold text-slate-900">
+                    <h3 className="text-xl sm:text-lg md:text-xl font-bold text-slate-900">
                       {service.title}
                     </h3>
-                    <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm leading-5 sm:leading-6
+                    <p className="text-[20px] sm:text-base md:text-lg
+                     leading-7 sm:leading-7 md:leading-8
                      text-slate-600">
                       {service.description}
                     </p>
