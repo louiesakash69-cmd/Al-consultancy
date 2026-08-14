@@ -21,8 +21,13 @@ const Footer = () => {
               <span className="text-lg text-gray-600 font-bold tracking-wide uppercase">
                 AL Consultancy
               </span>
-              <p className="text-gray-600 text-xs md:text-sm">
-                info@alconsultancy.in
+              <p>
+                <a
+                  href="mailto:info@alconsultancy.in"
+                  className="text-gray-600 text-xs md:text-sm"
+                >
+                  info@alconsultancy.in
+                </a>
               </p>
             </div>
           </div>
