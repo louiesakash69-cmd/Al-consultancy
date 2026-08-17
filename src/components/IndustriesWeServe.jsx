@@ -62,7 +62,7 @@ export default function IndustriesWeServe() {
   return (
     <section id="industries" className="py-7 md:py-12 lg:py-16 overflow-hidden">
       {/* Heading and Description */}
-      <div className= " px-8 max-w-7xl mx-auto  grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+      <div className= " px-4 max-w-7xl mx-auto  grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
         {/* Left Side Heading */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}

@@ -73,8 +73,8 @@ export default function OurService() {
   return (
     <section id="services" className="py-7 md:py-12 lg:py-16 ">
       <div
-        className="px-8 max-w-7xl mx-auto grid grid-cols-1
-        sm:grid-cols-[1fr_1.1fr] gap-10 sm:gap-16 sm:items-start">
+        className="px-4 max-w-7xl mx-auto grid grid-cols-1
+        sm:grid-cols-[2fr_1fr] gap-10 sm:gap-16 sm:items-start">
 
         {/* Left side - static on mobile, sticky only on sm and above */}
 
@@ -88,7 +88,8 @@ export default function OurService() {
         >
           <div className="flex items-center gap-2">
             <span className="w-6 h-px bg-slate-400"></span>
-            <span className="text-xs md:text-sm font-semibold tracking-widest text-slate-400">
+            <span className="text-xs md:text-sm font-semibold tracking-widest
+             text-slate-400">
               SERVICES
             </span>
           </div>
@@ -136,41 +137,44 @@ export default function OurService() {
                   className="
                   relative overflow-hidden
                   rounded-lg sm:rounded-2xl
-                  sm:min-h-[220px]
-                  w-full max-w-[300px] sm:max-w-md sm:max-w-lg lg:max-w-full mx-auto
+                  aspect-square
+                  w-full max-w-[300px] sm:max-w-[380px] lg:max-w-[360px] mx-auto
                   border border-slate-200"
                   style={{
-                    background:
-                      "linear-gradient(to bottom right, #f0f9ff, #f5f3ff, #fff1f2)",
-                  }}>
+                    background: 
+                    "linear-gradient(145deg, #e0f2fe, #fce7f3)", }}
+                  >
 
                   {/*  content */}
 
                   <div className="relative z-10 flex flex-col items-start
-                  gap-4 sm:gap-3
+                  gap-3 sm:gap-3
                   justify-start
-                  text-left h-full p-4 sm:p-5">
-                    <div className="w-12 h-12 sm:w-10 sm:h-10
+                  text-left h-full p-5 sm:p-6">
+                    <div className="w-12 h-12 sm:w-12 sm:h-12
                      rounded-md sm:rounded-lg
                      bg-white/60 sm:bg-white
                      border-0 sm:border sm:border-slate-200
-                     flex items-center justify-center shrink-0">
+                     flex items-center justify-center shrink-0 mb-0">
                       {Icon && (
                         <Icon
-                          className="w-6 h-6 sm:w-5 sm:h-5 text-slate-900 sm:text-slate-700"
+                          className="w-6 h-6 sm:w-6 sm:h-6 text-slate-900 sm:text-slate-700"
                           strokeWidth={1.75}
                         />
                       )}
                     </div>
 
-                    <h3 className="text-xl sm:text-lg md:text-xl font-bold text-slate-900">
+                    <h3 className="text-lg sm:text-xl md:text-xl font-bold
+                     text-slate-900 line-clamp-2 shrink-0">
                       {service.title}
                     </h3>
-                    <p className="text-[20px] sm:text-base md:text-lg
-                     leading-7 sm:leading-7 md:leading-8
-                     text-slate-600">
-                      {service.description}
-                    </p>
+                    <div className="flex-1 min-h-0 overflow-hidden w-full">
+                      <p className="text-sm sm:text-base md:text-base
+                       leading-6 sm:leading-7
+                       text-slate-600">
+                        {service.description}
+                      </p>
+                    </div>
                   </div>
                 </motion.div>
               </div>
