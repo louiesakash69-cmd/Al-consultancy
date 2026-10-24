@@ -1,6 +1,4 @@
 import { motion } from 'framer-motion'
-import heroimg from '../assets/hero-img-2.png'
-import alvideol from "../assets/videos/al-bg-video-l.mp4"
 import alvideor from "../assets/videos/al-bg-video-r.mp4"
 import {
   DrawBadgeCheck,
@@ -9,58 +7,77 @@ import {
   DrawShieldCheck,
 } from './ui/DrawIcon'
 
-
 const FLOATS = [
   {
     id: 'permits',
     title: 'EU work permits',
     note: 'Tracked end to end',
     Icon: DrawPlane,
+    iconColor: 'text-[#103463]',
+    iconBg: 'bg-[#EEF4FA]',
+    flagColors: ['#FFFFFF', '#1E40AF', '#DC2626'], // Slovakia / EU
     place: 'al-hero-float--right',
-    delay: 0.4,
+    delay: 0.35,
   },
   {
     id: 'ethics',
     title: 'Ethical recruitment',
-    note: 'Verified employers only',
+    note: 'Verified EU employers only',
     Icon: DrawShieldCheck,
+    iconColor: 'text-[#16A34A]',
+    iconBg: 'bg-[#F0FDF4]',
+    flagColors: ['#DC2626', '#FFFFFF', '#1E40AF'], // Croatia
     place: 'al-hero-float--left',
-    delay: 0.55,
+    delay: 0.5,
   },
   {
     id: 'placement',
-    title: 'End-to-end placement',
-    note: 'India to EU corridors',
+    title: 'India to Europe corridors',
+    note: 'End-to-end relocation',
     Icon: DrawGlobe,
+    iconColor: 'text-[#0284C7]',
+    iconBg: 'bg-[#E0F2FE]',
+    flagColors: ['#16A34A', '#FFFFFF', '#DC2626'], // Italy / Hungary
     place: 'al-hero-float--right--bottom',
-    delay: 0.7,
+    delay: 0.65,
   },
 ]
 
 const cardEnter = (delay) => ({
-  initial: { y: 14, scale: 0.97 },
+  initial: { opacity: 0, y: 16, scale: 0.96 },
   animate: {
+    opacity: 1,
     y: 0,
     scale: 1,
     transition: { delay, duration: 0.65, ease: [0.16, 1, 0.3, 1] },
   },
 })
 
-function FloatChip({ title, note, Icon, Extra, place, delay }) {
+function FloatChip({ title, note, Icon, iconColor, iconBg, flagColors, place, delay }) {
   return (
-    <motion.div className={`al-hero-float ${place}`} {...cardEnter(delay)}>
-      <span className="al-hero-float-icon" aria-hidden="true">
-        <Icon size={15} />
+    <motion.div
+      className={`al-hero-float ${place}`}
+      {...cardEnter(delay)}
+      whileHover={{ y: -4, scale: 1.03 }}
+      transition={{ duration: 0.2 }}
+    >
+      <span className={`al-hero-float-icon ${iconBg} ${iconColor}`} aria-hidden="true">
+        <Icon size={17} />
       </span>
       <div className="al-hero-float-copy">
-        <p className="al-hero-float-title">{title}</p>
+        <div className="flex items-center gap-1.5">
+          <p className="al-hero-float-title">{title}</p>
+          {/* Vivid national tri-color flag indicator */}
+          {flagColors && (
+            <span className="inline-flex flex-col w-3.5 h-2.5 rounded-[2px] overflow-hidden shadow-[0_0_0_1px_rgba(0,0,0,0.15)] shrink-0">
+              {flagColors.map((c, i) => (
+                <span key={i} style={{ backgroundColor: c }} className="flex-1 w-full" />
+              ))}
+            </span>
+          )}
+        </div>
         <p className="al-hero-float-note">{note}</p>
       </div>
-      {Extra ? (
-        <span className="al-hero-float-icon al-hero-float-icon--ghost" aria-hidden="true">
-          <Extra size={14} />
-        </span>
-      ) : null}
     </motion.div>
   )
 }
@@ -68,35 +85,29 @@ function FloatChip({ title, note, Icon, Extra, place, delay }) {
 export default function HeroVisual() {
   return (
     <div className="al-hero-visual">
+      {/* Soft atmospheric ambient glow */}
       <div className="al-hero-glow" aria-hidden="true" />
 
+      {/* Rotating Earth globe frame */}
       <motion.div
         className="al-hero-frame"
         animate={{ y: [0, -8, 0] }}
-        transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
+        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
       >
-        {/* <img
-          src={heroimg}
-          alt="Professional building a global career"
-          width="640"
-          height="640"
-          decoding="async"
-        /> */}
-
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover object-[100%_50%]"
+          className="absolute inset-0 w-full h-full object-cover object-center"
         >
           <source src={alvideor} type="video/mp4" />
         </video>
 
-
         <div className="al-hero-sheen" aria-hidden="true" />
       </motion.div>
 
+      {/* High-visibility floating interactive chips with full color flags & icons */}
       {FLOATS.map((item) => (
         <FloatChip key={item.id} {...item} />
       ))}
