@@ -3,8 +3,28 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Counter from "./ui/Counter";
 import MagneticButton from "./ui/MagneticButton";
 import { DrawArrowRight } from "./ui/DrawIcon";
-import { Award, Briefcase, Globe, TrendingUp } from "lucide-react";
 import alvideor from "../assets/videos/al-bg-video-r.mp4";
+
+const statItems = [
+  {
+    value: 50,
+    suffix: "+",
+    label: "Global Placements",
+    subLabel: "Candidates placed",
+  },
+  {
+    value: 3,
+    suffix: "",
+    label: "Active Corridors",
+    subLabel: "Slovakia & Europe",
+  },
+  {
+    value: 2,
+    suffix: "+",
+    label: "Years of Trust",
+    subLabel: "Direct employers",
+  },
+];
 
 const Hero = ({ setPopup }) => {
   const containerRef = useRef(null);
@@ -103,91 +123,37 @@ const Hero = ({ setPopup }) => {
               </MagneticButton>
             </motion.div>
 
-            {/* 3 CENTERED STATISTIC CARDS WITH RICH CORNER ACCENTS & SPRING ELEVATION */}
+            {/* 3 CLEAN COMPACT METRIC SQUARES - NO SYMBOLS/ICONS, LARGER PROMINENT TEXT */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.25, ease: "easeOut" }}
-              className="mt-8 sm:mt-11 max-w-2xl 2xl:max-w-3xl"
+              transition={{ duration: 0.45, delay: 0.22, ease: "easeOut" }}
+              className="mt-7 sm:mt-10 max-w-xl 2xl:max-w-2xl"
             >
               <div className="grid grid-cols-3 gap-2.5 sm:gap-4">
-                
-                {/* Metric 1: 50+ Placements */}
-                <motion.div
-                  whileHover={{ y: -4, scale: 1.02 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                  className="group relative p-3 sm:p-4 2xl:p-5 rounded-2xl bg-white border border-[#D0D7DE] shadow-sm hover:shadow-xl hover:shadow-blue-500/10 hover:border-[#103463] transition-all cursor-default overflow-hidden flex flex-col items-center text-center justify-between"
-                >
-                  <div className="absolute top-0 right-0 w-12 h-12 bg-[#EEF4FA] rounded-bl-2xl -z-0 opacity-60 group-hover:opacity-100 transition-opacity" />
-
-                  <div className="relative z-10 w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#EEF4FA] text-[#103463] flex items-center justify-center mb-2">
-                    <Briefcase size={16} strokeWidth={2.4} className="sm:w-4 sm:h-4" />
-                  </div>
-
-                  <div className="relative z-10 w-full">
-                    <div className="text-2xl sm:text-3xl 2xl:text-4xl font-black text-[#103463] tracking-tight leading-none my-0.5">
-                      <Counter to={50} suffix="+" />
+                {statItems.map((stat, i) => (
+                  <motion.div
+                    key={stat.label}
+                    whileHover={{ y: -3, scale: 1.02 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                    className="p-3 sm:p-4 2xl:p-5 rounded-2xl bg-white/95 backdrop-blur-md border border-[#D0D7DE] hover:border-[#103463] hover:shadow-md transition-all cursor-default flex flex-col items-center text-center justify-center min-h-[95px] sm:min-h-[110px]"
+                  >
+                    {/* Big Prominent Number Counter */}
+                    <div className="text-3xl sm:text-4xl lg:text-[2.65rem] 2xl:text-5xl font-black text-[#103463] tracking-tight leading-none mb-1">
+                      <Counter to={stat.value} suffix={stat.suffix} />
                     </div>
-                    <div className="text-[11px] sm:text-xs 2xl:text-sm font-bold text-slate-800 tracking-tight mt-1">
-                      Placements
-                    </div>
-                    <div className="relative z-10 flex items-center justify-center gap-1 text-[9.5px] sm:text-[10px] 2xl:text-xs font-semibold text-emerald-600 mt-1">
-                      <TrendingUp size={11} />
-                      <span>Verified</span>
-                    </div>
-                  </div>
-                </motion.div>
 
-                {/* Metric 2: 3 Countries */}
-                <motion.div
-                  whileHover={{ y: -4, scale: 1.02 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                  className="group relative p-3 sm:p-4 2xl:p-5 rounded-2xl bg-white border border-[#D0D7DE] shadow-sm hover:shadow-xl hover:shadow-sky-500/10 hover:border-[#365D8A] transition-all cursor-default overflow-hidden flex flex-col items-center text-center justify-between"
-                >
-                  <div className="absolute top-0 right-0 w-12 h-12 bg-sky-50 rounded-bl-2xl -z-0 opacity-60 group-hover:opacity-100 transition-opacity" />
-
-                  <div className="relative z-10 w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-sky-50 text-[#365D8A] flex items-center justify-center mb-2">
-                    <Globe size={16} strokeWidth={2.4} className="sm:w-4 sm:h-4" />
-                  </div>
-
-                  <div className="relative z-10 w-full">
-                    <div className="text-2xl sm:text-3xl 2xl:text-4xl font-black text-[#103463] tracking-tight leading-none my-0.5">
-                      <Counter to={3} suffix="" />
+                    {/* Primary Bold Label */}
+                    <div className="text-xs sm:text-sm 2xl:text-base font-extrabold text-slate-800 tracking-tight leading-tight">
+                      {stat.label}
                     </div>
-                    <div className="text-[11px] sm:text-xs 2xl:text-sm font-bold text-slate-800 tracking-tight mt-1">
-                      Countries
-                    </div>
-                    <div className="text-[9.5px] sm:text-[10px] 2xl:text-xs font-semibold text-slate-500 mt-1">
-                      Slovakia & Europe
-                    </div>
-                  </div>
-                </motion.div>
 
-                {/* Metric 3: 2+ Years */}
-                <motion.div
-                  whileHover={{ y: -4, scale: 1.02 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                  className="group relative p-3 sm:p-4 2xl:p-5 rounded-2xl bg-white border border-[#D0D7DE] shadow-sm hover:shadow-xl hover:shadow-blue-500/10 hover:border-[#103463] transition-all cursor-default overflow-hidden flex flex-col items-center text-center justify-between"
-                >
-                  <div className="absolute top-0 right-0 w-12 h-12 bg-blue-50 rounded-bl-2xl -z-0 opacity-60 group-hover:opacity-100 transition-opacity" />
-
-                  <div className="relative z-10 w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#EEF4FA] text-[#103463] flex items-center justify-center mb-2">
-                    <Award size={16} strokeWidth={2.4} className="sm:w-4 sm:h-4" />
-                  </div>
-
-                  <div className="relative z-10 w-full">
-                    <div className="text-2xl sm:text-3xl 2xl:text-4xl font-black text-[#103463] tracking-tight leading-none my-0.5">
-                      <Counter to={2} suffix="+" />
+                    {/* Secondary Descriptive Subtext */}
+                    <div className="text-[10px] sm:text-xs 2xl:text-sm font-semibold text-slate-500 mt-0.5 tracking-tight">
+                      {stat.subLabel}
                     </div>
-                    <div className="text-[11px] sm:text-xs 2xl:text-sm font-bold text-slate-800 tracking-tight mt-1">
-                      Experience
-                    </div>
-                    <div className="text-[9.5px] sm:text-[10px] 2xl:text-xs font-semibold text-slate-500 mt-1">
-                      Years Active
-                    </div>
-                  </div>
-                </motion.div>
-
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
 
