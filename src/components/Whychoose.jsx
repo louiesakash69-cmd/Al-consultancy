@@ -39,7 +39,7 @@ const Whychoose = () => {
           <Reveal>
             <Eyebrow>Why Us</Eyebrow>
           </Reveal>
-          <h2 className="al-display al-h2 font-bold text-slate-900 leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#103463] tracking-tight leading-tight">
             Reasons candidates and <br />
             employers stay with us
           </h2>
