@@ -123,7 +123,7 @@ const Hero = ({ setPopup }) => {
               </MagneticButton>
             </motion.div>
 
-            {/* 3 CLEAN COMPACT METRIC SQUARES - NO SYMBOLS/ICONS, LARGER PROMINENT TEXT */}
+            {/* 3 CLEAN COMPACT METRIC SQUARES - WITH INCREASED VERTICAL SPACING BETWEEN NUMBER, TITLE & SUBTITLE */}
             <motion.div
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
@@ -136,20 +136,20 @@ const Hero = ({ setPopup }) => {
                     key={stat.label}
                     whileHover={{ y: -3, scale: 1.02 }}
                     transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                    className="p-3 sm:p-4 2xl:p-5 rounded-2xl bg-white/95 backdrop-blur-md border border-[#D0D7DE] hover:border-[#103463] hover:shadow-md transition-all cursor-default flex flex-col items-center text-center justify-center min-h-[95px] sm:min-h-[110px]"
+                    className="p-3.5 sm:p-5 2xl:p-6 rounded-2xl bg-white/95 backdrop-blur-md border border-[#D0D7DE] hover:border-[#103463] hover:shadow-md transition-all cursor-default flex flex-col items-center text-center justify-center min-h-[110px] sm:min-h-[130px]"
                   >
                     {/* Big Prominent Number Counter */}
-                    <div className="text-3xl sm:text-4xl lg:text-[2.65rem] 2xl:text-5xl font-black text-[#103463] tracking-tight leading-none mb-1">
+                    <div className="text-3xl sm:text-4xl lg:text-[2.65rem] 2xl:text-5xl font-black text-[#103463] tracking-tight leading-none mb-3 sm:mb-3.5">
                       <Counter to={stat.value} suffix={stat.suffix} />
                     </div>
 
                     {/* Primary Bold Label */}
-                    <div className="text-xs sm:text-sm 2xl:text-base font-extrabold text-slate-800 tracking-tight leading-tight">
+                    <div className="text-xs sm:text-sm 2xl:text-base font-extrabold text-slate-800 tracking-tight leading-tight mb-1.5 sm:mb-2">
                       {stat.label}
                     </div>
 
                     {/* Secondary Descriptive Subtext */}
-                    <div className="text-[10px] sm:text-xs 2xl:text-sm font-semibold text-slate-500 mt-0.5 tracking-tight">
+                    <div className="text-[10px] sm:text-xs 2xl:text-sm font-semibold text-slate-500 tracking-tight">
                       {stat.subLabel}
                     </div>
                   </motion.div>

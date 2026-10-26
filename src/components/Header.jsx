@@ -45,23 +45,31 @@ const Header = ({ setPopup }) => {
       <div className="mx-auto max-w-7xl 2xl:max-w-[1700px] px-4 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between">
           
-          {/* Logo with tactile spring response */}
+          {/* Logo with modern executive typography aligned to brand palette */}
           <motion.a
             href="#top"
-            className="flex items-center min-w-0"
+            className="flex items-center gap-2.5 sm:gap-3 min-w-0 group"
             onClick={() => setOpen(false)}
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: 1.01 }}
             whileTap={{ scale: 0.98 }}
             transition={{ duration: 0.2 }}
           >
             <img
               src={logo}
-              alt="AL Consultancy"
+              alt="AL Consultancy Logo"
               className="h-9 sm:h-11 w-auto object-contain"
               width="150"
               height="44"
               decoding="async"
             />
+            <div className="flex items-baseline tracking-tight leading-none select-none">
+              <span className="text-[17px] sm:text-[20px] font-black text-[#103463] tracking-[-0.03em]">
+                AL
+              </span>
+              <span className="text-[17px] sm:text-[20px] font-bold text-[#365D8A] ml-1 tracking-[-0.02em]">
+                Consultancy
+              </span>
+            </div>
           </motion.a>
 
           {/* Desktop Nav with Floating Indicator Pill */}
