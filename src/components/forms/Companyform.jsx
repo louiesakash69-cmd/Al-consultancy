@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 import {
   AlertCircle,
   ArrowRight,
@@ -12,9 +11,8 @@ import {
   UserRound,
 } from "lucide-react";
 
-const API_URL = `${
-  import.meta.env.VITE_API_URL || "http://localhost:3000"
-}/api/companies`;
+const SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbzUOIFe3B3fqCs1jxzXAKX42bOJjNvgQG3xcVP9QePOt6qKoIR2Pi6cf23kzFN48Xmclg/exec";
 
 const MAX_WORKERS = 10000;
 
@@ -75,6 +73,8 @@ function CompanyForm({ onSuccess }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    if (loading) return;
+
     const form = event.currentTarget;
 
     if (!form.checkValidity()) {
@@ -88,29 +88,52 @@ function CompanyForm({ onSuccess }) {
     const formData = new FormData(form);
 
     const data = {
-      companyName: formData.get("companyName")?.trim(),
-      position: formData.get("workerType")?.trim(),
+      companyName: String(formData.get("companyName") || "").trim(),
+      position: String(formData.get("workerType") || "").trim(),
       numberOfWorkers: Number(formData.get("workerQuantity")),
       budgetPerWorker: Number(formData.get("budgetPerWorker")),
       visaSupport: formData.get("visaSupport") || "Not specified",
-      workLocation: formData.get("workLocation")?.trim(),
-      contactPerson: formData.get("contactPerson")?.trim(),
-      businessEmail: formData.get("businessEmail")?.trim(),
-      additionalDetails: formData.get("description")?.trim() || "",
+      workLocation: String(formData.get("workLocation") || "").trim(),
+      contactPerson: String(formData.get("contactPerson") || "").trim(),
+      businessEmail: String(formData.get("businessEmail") || "").trim(),
+      additionalDetails: String(formData.get("description") || "").trim(),
     };
 
     try {
-      await axios.post(API_URL, data);
+      // Sent as JSON text. Do NOT use mode: "no-cors": it hides the result.
+      const response = await fetch(SCRIPT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({
+          formType: "company", // saves to Sheet2
+          ...data,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+
+      let result;
+      try {
+        result = await response.json();
+      } catch {
+        throw new Error(
+          "Unexpected response from the server. Check that the web app is deployed with access set to Anyone."
+        );
+      }
+
+      if (!result.ok) {
+        throw new Error(result.error || "Save failed");
+      }
+
+      console.log("Saved:", result); // { ok: true, sheet: "Sheet2", row: N }
+
+      // Only reached when the script confirmed a row was written.
       onSuccess?.({ name: data.contactPerson, email: data.businessEmail });
     } catch (err) {
-      console.error(
-        "Company submission failed:",
-        err.response?.data || err.message
-      );
-      setError(
-        err.response?.data?.message ||
-          "Something went wrong. Please try again."
-      );
+      console.error("Company submission failed:", err);
+      setError("Could not save your request: " + err.message);
     } finally {
       setLoading(false);
     }
@@ -251,7 +274,8 @@ function CompanyForm({ onSuccess }) {
 
           <div className="sm:col-span-2">
             <span id="visa-label" className={labelClass}>
-              Visa support <span className="font-normal text-[#232D37]/50">(optional)</span>
+              Visa support{" "}
+              <span className="font-normal text-[#232D37]/50">(optional)</span>
             </span>
 
             <input type="hidden" name="visaSupport" value={visa} />
@@ -383,4 +407,3 @@ function CompanyForm({ onSuccess }) {
 }
 
 export default CompanyForm;
-
