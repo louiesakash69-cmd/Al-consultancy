@@ -178,7 +178,7 @@ function CompanyForm({ onSuccess }) {
 
           <div>
             <label htmlFor="company-location" className={labelClass}>
-              Work location
+              Company location
             </label>
             <input
               id="company-location"

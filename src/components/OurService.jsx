@@ -69,7 +69,7 @@ const BRAND_NAME = "AL Consultancy";
 const INTRO = [
   "We handle everything from sourcing to placement, giving employers and job seekers a smooth, end-to-end recruitment experience.",
   "We work only with verified employers and confirmed vacancies, so candidates get complete clarity before they commit.",
-  "Costs, documentation, and timelines — every step stays clear, transparent, and free of surprises.",
+  "Costs, documentation, and timelines  every step stays clear, transparent, and free of surprises.",
 ];
 
 const ourServices = [
@@ -189,14 +189,14 @@ export default function OurService() {
 
       {/* Parent div: container + mx-auto. Plain block on mobile (so the heading
           can stay sticky for the whole card list), two-column grid from lg up. */}
-      <div className="container mx-auto w-full max-w-7xl px-4 py-10 sm:py-14 lg:grid lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-14 lg:py-16 xl:gap-20">
+      <div className="mx-auto max-w-7xl 2xl:max-w-[1700px] 2xl:px-8 py-10 sm:px-4 max-sm:px-5 sm:py-14 lg:grid lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-14 mx-auto xl:gap-20">
         {/* LEFT on desktop / TOP HALF on mobile */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className={`os-head z-50 flex flex-col justify-center ${C.pageBg}`}
+          className={`os-head z-49 flex flex-col justify-center ${C.pageBg}`}
         >
           <div className="flex items-center gap-2.5">
             <span className={`h-[3px] w-8 rounded-full ${C.accentBg}`} />
@@ -263,7 +263,7 @@ export default function OurService() {
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
                   whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                  className={`group relative isolate flex h-full w-full flex-col justify-between overflow-hidden rounded-2xl border p-4 shadow-[0_10px_30px_rgba(16,52,99,0.09)] transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(16,52,99,0.16)] sm:rounded-3xl sm:p-7 lg:p-10 ${t.card}`}
+                  className={`group relative isolate flex h-full w-full flex-col justify-between overflow-hidden rounded-2xl border p-4  sm:rounded-3xl sm:p-7 lg:p-10 ${t.card}`}
                 >
                   {/* Decorative background number */}
                   <span

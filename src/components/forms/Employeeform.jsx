@@ -20,7 +20,7 @@ const STEP_COPY = [
     subtitle: "Tell us who you are and how we can reach you.",
   },
   {
-    title: "Your trade",
+    title: "Let's get to know you",
     subtitle: "Tell us your field and your experience.",
   },
 ];
